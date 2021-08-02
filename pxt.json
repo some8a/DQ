@@ -4,7 +4,9 @@
     "description": "",
     "dependencies": {
         "device": "*",
-        "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0"
+        "settings-blocks": "github:microsoft/pxt-settings-blocks#v1.0.0",
+        "Sprite Grid": "github:microsoft/arcade-grid#v1.3.0",
+        "arcade-story": "github:microsoft/arcade-storytelling#v1.0.2"
     },
     "files": [
         "README.md",

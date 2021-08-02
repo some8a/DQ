@@ -1,6 +1,7 @@
 namespace SpriteKind {
     export const kagu = SpriteKind.create()
     export const king = SpriteKind.create()
+    export const shop = SpriteKind.create()
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -163,6 +164,44 @@ function spritesetting () {
         . . . . . . . . f f f . . . . . 
         `, SpriteKind.king)
     king1.setPosition(216, 68)
+    murabito = sprites.create(img`
+        . . . . f f f f . . . . 
+        . . f f e e e e f f . . 
+        . f f e e e e e e f f . 
+        f f f f 4 e e e f f f f 
+        f f f 4 4 4 e e f f f f 
+        f f f 4 4 4 4 e e f f f 
+        f 4 e 4 4 4 4 4 4 e 4 f 
+        f 4 4 f f 4 4 f f 4 4 f 
+        f e 4 d d d d d d 4 e f 
+        . f e d d b b d d e f . 
+        . f f e 4 4 4 4 e f f . 
+        e 4 f b 1 1 1 1 b f 4 e 
+        4 d f 1 1 1 1 1 1 f d 4 
+        4 4 f 6 6 6 6 6 6 f 4 4 
+        . . . f f f f f f . . . 
+        . . . f f . . f f . . . 
+        `, SpriteKind.Player)
+    murabito.setPosition(56, 104)
+    doguya = sprites.create(img`
+        e e e e e e e e e e e e e e e e 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.shop)
+    doguya.setPosition(56, 136)
     mySprite = sprites.create(img`
         . . . . . . f f f f . . . . . . 
         . . . . f f f 2 2 f f f . . . . 
@@ -413,14 +452,21 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+sprites.onOverlap(SpriteKind.shop, SpriteKind.Player, function (sprite, otherSprite) {
+    if (controller.up.isPressed()) {
+        game.showLongText("ここは道具屋だ。\\n何を買うかい？", DialogLayout.Bottom)
+    }
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.king, function (sprite, otherSprite) {
     if (controller.up.isPressed()) {
-    	
+        game.showLongText("よく来た。勇者", DialogLayout.Bottom)
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-	
+    game.showLongText("HP 130 / 200\\nMP 50 / 60\\n GLD 1000", DialogLayout.Bottom)
 })
+let doguya: Sprite = null
+let murabito: Sprite = null
 let king1: Sprite = null
 let bed: Sprite = null
 let mySprite: Sprite = null
