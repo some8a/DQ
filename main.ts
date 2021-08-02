@@ -247,7 +247,7 @@ function spritesetting () {
         . . . . . f f f f f f . . . . . 
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.Player)
-    mySprite.setPosition(8, 152)
+    mySprite.setPosition(56, 200)
     controller.moveSprite(mySprite, 80, 80)
     scene.cameraFollowSprite(mySprite)
 }
@@ -521,14 +521,15 @@ let hp = 0
 let maxhp = 0
 let level = 0
 scene.setBackgroundColor(15)
-if (game.ask("前回の続きから始めますか")) {
-    getSetting()
-} else {
-    level = 1
-    maxhp = 10
-    hp = 10
-    maxmp = 0
-    mp = 0
+level = 1
+maxhp = 10
+hp = 10
+maxmp = 0
+mp = 0
+if (blockSettings.exists("level")) {
+    if (game.ask("前回の続きから始めますか")) {
+        getSetting()
+    }
 }
 pause(500)
 scene.setBackgroundColor(7)
