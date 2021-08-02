@@ -415,13 +415,11 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.king, function (sprite, otherSprite) {
     if (controller.up.isPressed()) {
-        game.showLongText("テストテストテスストテストテスト", DialogLayout.Bottom)
-        game.showLongText("testtesttestesttesttest", DialogLayout.Bottom)
-        game.showLongText("早く行ってこい", DialogLayout.Bottom)
+    	
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    game.showLongText("HP 30 / 100\\nMP 20/50\\n 300G", DialogLayout.Bottom)
+	
 })
 let king1: Sprite = null
 let bed: Sprite = null
