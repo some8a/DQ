@@ -2,6 +2,7 @@ namespace SpriteKind {
     export const kagu = SpriteKind.create()
     export const king = SpriteKind.create()
     export const shop = SpriteKind.create()
+    export const kyokai = SpriteKind.create()
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -79,6 +80,13 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+function getSetting () {
+    level = blockSettings.readNumber("level")
+    maxhp = blockSettings.readNumber("maxhp")
+    hp = blockSettings.readNumber("hp")
+    maxmp = blockSettings.readNumber("maxmp")
+    mp = blockSettings.readNumber("mp")
+}
 function spritesetting () {
     bed = sprites.create(img`
         ...bbccccccbb...
@@ -107,6 +115,25 @@ function spritesetting () {
         ..ff........ff..
         `, SpriteKind.kagu)
     bed.setPosition(72, 200)
+    kyokai1 = sprites.create(img`
+        . . . . . f f f f . . . . . 
+        . . . f f 5 5 5 5 f f . . . 
+        . . f 5 5 5 5 5 5 5 5 f . . 
+        . f 5 5 5 5 5 5 5 5 5 5 f . 
+        . f 5 5 5 d b b d 5 5 5 f . 
+        f 5 5 5 b 4 4 4 4 b 5 5 5 f 
+        f 5 5 c c 4 4 4 4 c c 5 5 f 
+        f b b f b f 4 4 f b f b b f 
+        f b b 4 1 f d d f 1 4 b b f 
+        . f b f d d d d d d f b f . 
+        . f e f e 4 4 4 4 e f e f . 
+        . e 4 f 6 9 9 9 9 6 f 4 e . 
+        . 4 d c 9 9 9 9 9 9 c d 4 . 
+        . 4 f b 3 b 3 b 3 b b f 4 . 
+        . . f f 3 b 3 b 3 3 f f . . 
+        . . . . f f b b f f . . . . 
+        `, SpriteKind.kyokai)
+    kyokai1.setPosition(184, 200)
     king1 = sprites.create(img`
         . . . . . f f 4 4 f f . . . . . 
         . . . . f 5 4 5 5 4 5 f . . . . 
@@ -452,6 +479,13 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+function saveSetting () {
+    blockSettings.writeNumber("level", level)
+    blockSettings.writeNumber("maxhp", maxhp)
+    blockSettings.writeNumber("hp", hp)
+    blockSettings.writeNumber("maxmp", maxmp)
+    blockSettings.writeNumber("mp", mp)
+}
 sprites.onOverlap(SpriteKind.shop, SpriteKind.Player, function (sprite, otherSprite) {
     if (controller.up.isPressed()) {
         game.showLongText("ここは道具屋だ。\\n何を買うかい？", DialogLayout.Bottom)
@@ -462,14 +496,36 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.king, function (sprite, otherSpr
         game.showLongText("よく来た。勇者", DialogLayout.Bottom)
     }
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.kyokai, function (sprite, otherSprite) {
+    if (controller.up.isPressed()) {
+        game.showLongText("ここまでの冒険を\\n記録します", DialogLayout.Bottom)
+        saveSetting()
+    }
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    game.showLongText("HP 130 / 200\\nMP 50 / 60\\n GLD 1000", DialogLayout.Bottom)
+    game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nLEVEL " + convertToText(level), DialogLayout.Bottom)
 })
 let doguya: Sprite = null
 let murabito: Sprite = null
 let king1: Sprite = null
+let kyokai1: Sprite = null
 let bed: Sprite = null
 let mySprite: Sprite = null
+let mp = 0
+let maxmp = 0
+let hp = 0
+let maxhp = 0
+let level = 0
+if (game.ask("続きから始めますか")) {
+    getSetting()
+} else {
+    level = 1
+    maxhp = 10
+    hp = 10
+    maxmp = 0
+    mp = 0
+}
+scene.setBackgroundColor(15)
 scene.setBackgroundColor(7)
 tiles.setTilemap(tilemap`レベル1`)
 spritesetting()
