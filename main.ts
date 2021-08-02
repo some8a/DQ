@@ -403,6 +403,9 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    level += 1
+})
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -498,8 +501,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.king, function (sprite, otherSpr
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.kyokai, function (sprite, otherSprite) {
     if (controller.up.isPressed()) {
-        game.showLongText("ここまでの冒険を\\n記録します", DialogLayout.Bottom)
-        saveSetting()
+        if (game.ask("冒険を記録しますか")) {
+            saveSetting()
+        }
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -516,7 +520,8 @@ let maxmp = 0
 let hp = 0
 let maxhp = 0
 let level = 0
-if (game.ask("続きから始めますか")) {
+scene.setBackgroundColor(15)
+if (game.ask("前回の続きから始めますか")) {
     getSetting()
 } else {
     level = 1
@@ -525,7 +530,7 @@ if (game.ask("続きから始めますか")) {
     maxmp = 0
     mp = 0
 }
-scene.setBackgroundColor(15)
+pause(500)
 scene.setBackgroundColor(7)
 tiles.setTilemap(tilemap`レベル1`)
 spritesetting()
