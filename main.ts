@@ -3,6 +3,8 @@ namespace SpriteKind {
     export const king = SpriteKind.create()
     export const shop = SpriteKind.create()
     export const kyokai = SpriteKind.create()
+    export const entrance = SpriteKind.create()
+    export const murabito = SpriteKind.create()
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -88,6 +90,25 @@ function getSetting () {
     mp = blockSettings.readNumber("mp")
 }
 function spritesetting () {
+    entrance = sprites.create(img`
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        b . . . . . . . . . . . . . . . 
+        `, SpriteKind.entrance)
+    entrance.setPosition(8, 152)
     bed = sprites.create(img`
         ...bbccccccbb...
         ..bdddddddd1db..
@@ -153,7 +174,7 @@ function spritesetting () {
         . . . . . f f b b f f . . . . . 
         `, SpriteKind.king)
     king1.setPosition(184, 56)
-    king1 = sprites.create(img`
+    murabito = sprites.create(img`
         . . . . f f f f f f . . . . . . 
         . . f f e e e e f b f . . . . . 
         . f f e e e e f b b b f . . . . 
@@ -170,9 +191,9 @@ function spritesetting () {
         . . . f c c c c 5 5 f . . . . . 
         . . . . f f f f f f . . . . . . 
         . . . . . f f f . . . . . . . . 
-        `, SpriteKind.king)
-    king1.setPosition(152, 68)
-    king1 = sprites.create(img`
+        `, SpriteKind.murabito)
+    murabito.setPosition(152, 68)
+    murabito = sprites.create(img`
         . . . . . . f f f f f f . . . . 
         . . . . . f b f e e e e f f . . 
         . . . . f b b b f e e e e f f . 
@@ -189,8 +210,8 @@ function spritesetting () {
         . . . . . f 5 5 c c c c f . . . 
         . . . . . . f f f f f f . . . . 
         . . . . . . . . f f f . . . . . 
-        `, SpriteKind.king)
-    king1.setPosition(216, 68)
+        `, SpriteKind.murabito)
+    murabito.setPosition(216, 68)
     murabito = sprites.create(img`
         . . . . f f f f . . . . 
         . . f f e e e e f f . . 
@@ -208,7 +229,7 @@ function spritesetting () {
         4 4 f 6 6 6 6 6 6 f 4 4 
         . . . f f f f f f . . . 
         . . . f f . . f f . . . 
-        `, SpriteKind.Player)
+        `, SpriteKind.murabito)
     murabito.setPosition(56, 104)
     doguya = sprites.create(img`
         e e e e e e e e e e e e e e e e 
@@ -251,6 +272,9 @@ function spritesetting () {
     controller.moveSprite(mySprite, 80, 80)
     scene.cameraFollowSprite(mySprite)
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.entrance, function (sprite, otherSprite) {
+    clearCity()
+})
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -327,6 +351,15 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+function clearCity () {
+    king1.destroy()
+    kyokai1.destroy()
+    doguya.destroy()
+    for (let 値 of murabito) {
+        murabito.destroy()
+    }
+    bed.destroy()
+}
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -514,6 +547,7 @@ let murabito: Sprite = null
 let king1: Sprite = null
 let kyokai1: Sprite = null
 let bed: Sprite = null
+let entrance: Sprite = null
 let mySprite: Sprite = null
 let mp = 0
 let maxmp = 0
