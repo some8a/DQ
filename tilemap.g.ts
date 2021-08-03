@@ -49,8 +49,27 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, [myTiles.transparency16], TileScale.Sixteen);
+            case "レベル4":
+            case "レベル4":return tiles.createTilemap(hex`1000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000`, img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, [myTiles.transparency16], TileScale.Sixteen);
             case "レベル2":
-            case "レベル2":return tiles.createTilemap(hex`10001000170606060606060606151906060606150606060606061011110f1906060606180606060606100f0606060609090909090b0a07070907070709090606060707070409090909070909060609090906060604090707070707090906060606060606040c0607070707090909090909090606030401010101010102070707070707070d0d0d0d0d0d060304010101010101050d0d0d0d0606060606060606060606060d0d0606060606060606090909060606060606060606060606061309090909060606060606060606061308080809090912120606060606060614080808081011110e120e0e06060e0e0e0808080808150f111111111111111111111111160815`, img`
+            case "レベル2":return tiles.createTilemap(hex`10001000161b1b1b1b1b1b1b1b14181c1c1c19141b1b1b1b1b1b0f10100e181c1c1c19171b1b1b1b1b0f0e1a1a1a1a08080808080a091b1b081a1a1a08081a1a1a1a1a1a04080808081a08081a1a0808081a1a1a0408191a1a1a1a08081a1a1a1a1a1a1a040b191a1a1a1a0808080808080806060304010101010101021a1a1a1a1a1a1a0c0c0c0c0c0c060304010101010101050c0c0c0c0606060606060606060606060c0c0606190606060606080808060606060606061906060606061208080808060606060606060606061207070708080811110606060606060613070707070f10100d110d0d06060d0d0d0707070707140e101010101010101010101010150714`, img`
 2 . . . . . . . . 2 2 . . . . 2 
 . . . . . . 2 2 2 2 2 . . . . 2 
 . . . . . 2 2 . . . . 2 2 2 2 2 
@@ -67,7 +86,7 @@ namespace myTiles {
 . . . . . . . . . . . . . . 2 2 
 2 . . . . . . . . . . . . . . 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 2 
-`, [myTiles.transparency16,sprites.swamp.swampTile7,sprites.swamp.swampTile8,sprites.swamp.swampTile12,sprites.swamp.swampTile9,sprites.dungeon.stairNorth,sprites.castle.tileGrass1,sprites.castle.tileGrass3,sprites.castle.tilePath5,sprites.castle.rock0,sprites.swamp.swampTile5,sprites.swamp.swampTile6,myTiles.tile3,sprites.builtin.forestTiles0,sprites.builtin.forestTiles1,sprites.builtin.forestTiles10,sprites.builtin.forestTiles5,sprites.builtin.forestTiles6,sprites.builtin.forestTiles4,sprites.castle.tilePath1,sprites.castle.tilePath4,sprites.builtin.forestTiles9,sprites.builtin.forestTiles7,sprites.builtin.forestTiles15,sprites.builtin.forestTiles13,sprites.builtin.forestTiles11], TileScale.Sixteen);
+`, [myTiles.transparency16,sprites.swamp.swampTile7,sprites.swamp.swampTile8,sprites.swamp.swampTile12,sprites.swamp.swampTile9,sprites.dungeon.stairNorth,sprites.castle.tileGrass1,sprites.castle.tilePath5,sprites.castle.rock0,sprites.swamp.swampTile5,sprites.swamp.swampTile6,myTiles.tile3,sprites.builtin.forestTiles0,sprites.builtin.forestTiles1,sprites.builtin.forestTiles10,sprites.builtin.forestTiles5,sprites.builtin.forestTiles6,sprites.builtin.forestTiles4,sprites.castle.tilePath1,sprites.castle.tilePath4,sprites.builtin.forestTiles9,sprites.builtin.forestTiles7,sprites.builtin.forestTiles15,sprites.builtin.forestTiles13,sprites.builtin.forestTiles11,sprites.skillmap.islandTile4,sprites.castle.tileGrass3,sprites.castle.tileDarkGrass3,sprites.castle.tileDarkGrass1], TileScale.Sixteen);
         }
         return null;
     })

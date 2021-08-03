@@ -90,6 +90,52 @@ function getSetting () {
     maxmp = blockSettings.readNumber("maxmp")
     mp = blockSettings.readNumber("mp")
 }
+function putEnemy () {
+    for (let index = 0; index < 10; index++) {
+        enemy1 = sprites.create(img`
+            2 . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Enemy)
+        tiles.placeOnRandomTile(enemy1, sprites.castle.tileGrass1)
+        enemy1.setFlag(SpriteFlag.Invisible, true)
+    }
+    for (let index = 0; index < 10; index++) {
+        enemy1 = sprites.create(img`
+            2 . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Enemy)
+        tiles.placeOnRandomTile(enemy1, sprites.castle.tileGrass3)
+        enemy1.setFlag(SpriteFlag.Invisible, true)
+    }
+}
 function spritesetting () {
     entrance = sprites.create(img`
         b . . . . . . . . . . . . . . . 
@@ -256,10 +302,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.entrance, function (sprite, othe
     clearCity()
     mapSetting()
     tiles.setTilemap(tilemap`レベル2`)
-    controller.moveSprite(mySprite, 0, 0)
+    putEnemy()
     mySprite.setPosition(72, 184)
-    pause(500)
-    controller.moveSprite(mySprite, 80, 80)
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -550,6 +594,7 @@ function clearMap () {
     }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.city, function (sprite, otherSprite) {
+    clearEnemy()
     clearMap()
     tiles.setTilemap(tilemap`レベル1`)
     spritesetting()
@@ -558,12 +603,20 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.city, function (sprite, otherSpr
     pause(1000)
     controller.moveSprite(mySprite, 80, 80)
 })
+function clearEnemy () {
+    for (let 値 of sprites.allOfKind(SpriteKind.Enemy)) {
+        値.destroy()
+    }
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.kyokai, function (sprite, otherSprite) {
     if (controller.up.isPressed()) {
         if (game.ask("冒険を記録しますか")) {
             saveSetting()
         }
     }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    mySprite.say(":)", 500)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nLEVEL " + convertToText(level), DialogLayout.Bottom)
@@ -575,6 +628,7 @@ let king1: Sprite = null
 let kyokai1: Sprite = null
 let bed: Sprite = null
 let entrance: Sprite = null
+let enemy1: Sprite = null
 let mySprite: Sprite = null
 let mp = 0
 let maxmp = 0
