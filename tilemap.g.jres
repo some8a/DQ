@@ -50,7 +50,7 @@
     "レベル2": {
         "id": "レベル2",
         "mimeType": "application/mkcd-tilemap",
-        "data": "MTAxMDAwMTAwMDA2MDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MGEwYTBhMGEwYTA2MDYwNjA2MDYwYzBiMDYwNjA2MGEwYTA2MDYwNjA2MGEwYTBhMGEwYTA0MDcwNzA3MGEwNzA3MDcwYTBhMDYwNjA2MDcwNzA3MDQwYTBhMGEwYTA3MGEwYTA2MDYwYTBhMGEwNjA2MDYwNDBhMDcwNzA3MDcwNzBhMGEwNjA2MDYwNjA2MDYwNjA0MGQwNjA3MDcwNzA3MDcwYTBhMGEwYTBhMGEwNjA2MDMwNDAxMDEwMTAxMDEwMTAyMDcwNzA3MDcwNzA3MDcwZTBlMGUwZTBlMGUwNjAzMDQwMTAxMDEwMTAxMDEwNTBlMGUwZTBlMDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MGUwZTBlMDYwNjA2MDYwNjA2MDYwYTBhMGEwNjA2MDYwZTBlMGUwNjA2MDYwNjA2MDYwNjE0MGEwYTBhMGEwNjEzMGUwZTA2MDgwNjA2MDYwNjE0MDkwOTA5MGEwYTBhMTMxMzEzMDgwODA4MDYwNjA4MTUwOTA5MDkwOTExMTIxMjBmMTMwZjBmMDYwNjBmMGYwZjA5MDkwOTA5MDkxNjEwMTIxMjEyMTIxMjEyMTIxMjEyMTIxMjEyMTcwOTE2MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDIyMjIwMjAwMDAyMjAwMjAwMjAwMjAyMjIyMDIwMDAyMDAyMjAwMDAwMDIyMjIwMjIyMDAyMjAyMDAyMjAwMDAyMDAyMDAwMDAwMjIwMDAwMDAyMjIyMjIwMDIyMjIyMjIyMDIwMDAwMDAwMDAwMDAyMDIyMjIyMjAyMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAyMjAyMDAwMDAwMDAwMDAwMjAyMjAyMDAwMDAwMDAwMDAwMjAyMjAwMDAwMDAwMDAwMDAwMjIwMjAwMDAwMDAwMDAwMDIwMjIyMjIyMjIyMjIyMjIyMA==",
+        "data": "MTAxMDAwMTAwMDE3MDYwNjA2MDYwNjA2MDYwNjE1MTkwNjA2MDYwNjE1MDYwNjA2MDYwNjA2MTAxMTExMGYxOTA2MDYwNjA2MTgwNjA2MDYwNjA2MTAwZjA2MDYwNjA2MDkwOTA5MDkwOTBiMGEwNzA3MDkwNzA3MDcwOTA5MDYwNjA2MDcwNzA3MDQwOTA5MDkwOTA3MDkwOTA2MDYwOTA5MDkwNjA2MDYwNDA5MDcwNzA3MDcwNzA5MDkwNjA2MDYwNjA2MDYwNjA0MGMwNjA3MDcwNzA3MDkwOTA5MDkwOTA5MDkwNjA2MDMwNDAxMDEwMTAxMDEwMTAyMDcwNzA3MDcwNzA3MDcwZDBkMGQwZDBkMGQwNjAzMDQwMTAxMDEwMTAxMDEwNTBkMGQwZDBkMDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MGQwZDA2MDYwNjA2MDYwNjA2MDYwOTA5MDkwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MDYwNjEzMDkwOTA5MDkwNjA2MDYwNjA2MDYwNjA2MDYwNjEzMDgwODA4MDkwOTA5MTIxMjA2MDYwNjA2MDYwNjA2MTQwODA4MDgwODEwMTExMTBlMTIwZTBlMDYwNjBlMGUwZTA4MDgwODA4MDgxNTBmMTExMTExMTExMTExMTExMTExMTExMTExMTYwODE1MDIwMDAwMDAyMDAyMDAyMDAwMDAwMDIyMjIwMjAwMjAwMDAwMjAwMjAwMjAyMjIyMjIwMDAyMDAyMjAwMDAwMDIyMjIwMjIyMDAyMjAyMDAyMjAwMDAyMDAyMDAwMDAwMjIwMDAwMjAyMjIyMjIwMDIyMjIyMjIyMDIwMDAwMDAwMDAwMDAyMDIyMjIyMjAyMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAyMjAyMDAwMDAwMDAwMDAwMjAyMjAyMDAwMDAwMDAwMDAwMjAyMjAwMDAwMDAwMDAwMDAwMjIwMjAwMDAwMDAwMDAwMDIwMjIyMjIyMjIyMjIyMjIyMA==",
         "tileset": [
             "myTiles.transparency16",
             "sprites.swamp.swampTile7",
@@ -60,7 +60,6 @@
             "sprites.dungeon.stairNorth",
             "sprites.castle.tileGrass1",
             "sprites.castle.tileGrass3",
-            "sprites.castle.tileGrass2",
             "sprites.castle.tilePath5",
             "sprites.castle.rock0",
             "sprites.swamp.swampTile5",
@@ -75,7 +74,10 @@
             "sprites.castle.tilePath1",
             "sprites.castle.tilePath4",
             "sprites.builtin.forestTiles9",
-            "sprites.builtin.forestTiles7"
+            "sprites.builtin.forestTiles7",
+            "sprites.builtin.forestTiles15",
+            "sprites.builtin.forestTiles13",
+            "sprites.builtin.forestTiles11"
         ],
         "displayName": "レベル2"
     },
