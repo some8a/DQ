@@ -10,6 +10,18 @@
         "tilemapTile": true,
         "displayName": "myTile"
     },
+    "tile3": {
+        "data": "hwQQABAAAAAAgIioqqqqqgAAgIiqqqqqAAAAiKiqqqoAAACIiKqqqgAAAICIqKqqAAAAAIiIqqoAAAAAgIiqqgAAAACAiKiqAAAAAACIqKoAAAAAAICIqgAAAAAAgIiqAAAAAAAAiKgAAAAAAACIqAAAAAAAAICIAAAAAAAAgIgAAAAAAACAiA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile1"
+    },
+    "tile2": {
+        "data": "hwQQABAAAAAA0N27DADN3QDdu8vc3c3M0L27vLu7zbvdu8u8vNzL3b27zLu728zMzLu7u7y8u7zAu7u7u7u7vMDMu7u8vLu8AMC8u7u7u7wAAMy70N3MzN3dzcyw28u7vbu7y7u8zd3Ny8u7u7zNzL27u7u7vM27zczMzLy8zbsAAAAAvLvNuw==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile0"
+    },
     "レベル1": {
         "id": "レベル1",
         "mimeType": "application/mkcd-tilemap",
@@ -25,6 +37,47 @@
             "myTiles.tile1"
         ],
         "displayName": "レベル1"
+    },
+    "レベル3": {
+        "id": "レベル3",
+        "mimeType": "application/mkcd-tilemap",
+        "data": "MTAxMDAwMTAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMA==",
+        "tileset": [
+            "myTiles.transparency16"
+        ],
+        "displayName": "レベル3"
+    },
+    "レベル2": {
+        "id": "レベル2",
+        "mimeType": "application/mkcd-tilemap",
+        "data": "MTAxMDAwMTAwMDA2MDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MGEwYTBhMGEwYTA2MDYwNjA2MDYwYzBiMDYwNjA2MGEwYTA2MDYwNjA2MGEwYTBhMGEwYTA0MDcwNzA3MGEwNzA3MDcwYTBhMDYwNjA2MDcwNzA3MDQwYTBhMGEwYTA3MGEwYTA2MDYwYTBhMGEwNjA2MDYwNDBhMDcwNzA3MDcwNzBhMGEwNjA2MDYwNjA2MDYwNjA0MGQwNjA3MDcwNzA3MDcwYTBhMGEwYTBhMGEwNjA2MDMwNDAxMDEwMTAxMDEwMTAyMDcwNzA3MDcwNzA3MDcwZTBlMGUwZTBlMGUwNjAzMDQwMTAxMDEwMTAxMDEwNTBlMGUwZTBlMDYwNjA2MDYwNjA2MDYwNjA2MDYwNjA2MGUwZTBlMDYwNjA2MDYwNjA2MDYwYTBhMGEwNjA2MDYwZTBlMGUwNjA2MDYwNjA2MDYwNjE0MGEwYTBhMGEwNjEzMGUwZTA2MDgwNjA2MDYwNjE0MDkwOTA5MGEwYTBhMTMxMzEzMDgwODA4MDYwNjA4MTUwOTA5MDkwOTExMTIxMjBmMTMwZjBmMDYwNjBmMGYwZjA5MDkwOTA5MDkxNjEwMTIxMjEyMTIxMjEyMTIxMjEyMTIxMjEyMTcwOTE2MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDIyMjIwMjAwMDAyMjAwMjAwMjAwMjAyMjIyMDIwMDAyMDAyMjAwMDAwMDIyMjIwMjIyMDAyMjAyMDAyMjAwMDAyMDAyMDAwMDAwMjIwMDAwMDAyMjIyMjIwMDIyMjIyMjIyMDIwMDAwMDAwMDAwMDAyMDIyMjIyMjAyMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAyMjAyMDAwMDAwMDAwMDAwMjAyMjAyMDAwMDAwMDAwMDAwMjAyMjAwMDAwMDAwMDAwMDAwMjIwMjAwMDAwMDAwMDAwMDIwMjIyMjIyMjIyMjIyMjIyMA==",
+        "tileset": [
+            "myTiles.transparency16",
+            "sprites.swamp.swampTile7",
+            "sprites.swamp.swampTile8",
+            "sprites.swamp.swampTile12",
+            "sprites.swamp.swampTile9",
+            "sprites.dungeon.stairNorth",
+            "sprites.castle.tileGrass1",
+            "sprites.castle.tileGrass3",
+            "sprites.castle.tileGrass2",
+            "sprites.castle.tilePath5",
+            "sprites.castle.rock0",
+            "sprites.swamp.swampTile5",
+            "sprites.swamp.swampTile6",
+            "myTiles.tile3",
+            "sprites.builtin.forestTiles0",
+            "sprites.builtin.forestTiles1",
+            "sprites.builtin.forestTiles10",
+            "sprites.builtin.forestTiles5",
+            "sprites.builtin.forestTiles6",
+            "sprites.builtin.forestTiles4",
+            "sprites.castle.tilePath1",
+            "sprites.castle.tilePath4",
+            "sprites.builtin.forestTiles9",
+            "sprites.builtin.forestTiles7"
+        ],
+        "displayName": "レベル2"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",
