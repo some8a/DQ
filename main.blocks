@@ -160,22 +160,22 @@ e e e e e e e e e e e e e e e e
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `</field><data>{"commentRefs":[],"fieldData":{"img":"/H.U!3Wb[2YIcO{~:C41"}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="~Rti|Xq*Dg@Epg69j*!h"><field name="MEMBER">shop</field></shadow></value></block></value><next><block type="spritesetpos" id="Byms:hnlPO}aiRNR^67["><value name="sprite"><block type="variables_get" id="weUrW|9wOImGdNR;g[iC"><field name="VAR" id="i;`!L5:q?64?ig9UfXsK">doguya</field></block></value><value name="x"><shadow type="positionPicker" id="#kFXXfQ:b:kM}Z|edAgf"><field name="index">56</field></shadow></value><value name="y"><shadow type="positionPicker" id="dm~Qj]CE?wXa76vNjdr)"><field name="index">136</field></shadow></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="function_definition" id="#vW@RG~$ZJM@zgqHp:XL" x="2130" y="-150"><mutation name="mapSetting" functionid="-5,9B=..JMiz7nSOPC5|"/><field name="function_name">mapSetting</field><statement name="STACK"><block type="variables_set" id="7Ag58;{=E/#NcLrTl(aJ"><field name="VAR" id="{Si}CMp@ht4Be`mok$T}">city1</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="zp=`b,0+fbP.p5oQX|iK"><value name="img"><shadow type="screen_image_picker" id="q58.x^+*dP{z5Ze]1BU`"><field name="img">assets.tile`myTile0`</field><data>{"commentRefs":[],"fieldData":{"img":"myTiles.tile2"}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="_m~XV#]tw!qnDps#+oUp"><field name="MEMBER">city</field></shadow></value></block></value><next><block type="spritesetpos" id="fiF@L/Q]GliwH,eS;IFJ"><value name="sprite"><block type="variables_get" id="K5LV0-^vW68xh-v({nE/"><field name="VAR" id="{Si}CMp@ht4Be`mok$T}">city1</field></block></value><value name="x"><shadow type="positionPicker" id="M2u~kut1CFN/Q3y$8ZHR"><field name="index">72</field></shadow></value><value name="y"><shadow type="positionPicker" id="?@fysc2vm~V8+eebluNd"><field name="index">168</field></shadow></value><next><block type="variables_set" id="zerUH)!BW.?AyIGe2jNN"><field name="VAR" id="{Si}CMp@ht4Be`mok$T}">city1</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="~(K785h/#W$*lMBj8M8i"><value name="img"><shadow type="screen_image_picker" id="V_[nj4EgGAMAmPRPbQd~"><field name="img">assets.tile`myTile0`</field><data>{"commentRefs":[],"fieldData":{"img":"myTiles.tile2"}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="FV8j|##L[_O$vHt(+S21"><field name="MEMBER">city</field></shadow></value></block></value><next><block type="spritesetpos" id="%mT0NX;xpRPwDcq@{V7h"><value name="sprite"><block type="variables_get" id="w[y20W}I{wDuFLIj@`t("><field name="VAR" id="{Si}CMp@ht4Be`mok$T}">city1</field></block></value><value name="x"><shadow type="positionPicker" id="GpMJbDSKLb@TEq~#W8sD"><field name="index">40</field></shadow></value><value name="y"><shadow type="positionPicker" id="SqoMMH_NRyvIs{3yR|pb"><field name="index">88</field></shadow></value><next><block type="variables_set" id="(5p#V:b}0(1r(;Z2EgHr"><field name="VAR" id="{Si}CMp@ht4Be`mok$T}">city1</field><value name="VALUE"><shadow xmlns="http://www.w3.org/1999/xhtml" type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="A8G+D4(Rt%*rQ$6=8+9,"><value name="img"><shadow type="screen_image_picker" id="aa8Xi_}$AGv{IQ$3Sy=a"><field name="img">img`
-f d c f d c f 8 d c f f f d c f 
-d c a 8 d a 8 8 c a c f d b c b 
-d c a d c a c d c a c d d c c b 
-d c a a c a c c c a c d b c c b 
-f f c a d f d f a a c c c 8 c c 
-f f c a b d b d a a c c f f f c 
-f f c a c c c a a a c f f f f f 
-f f c a d f d f a a 8 8 f f f f 
-f b c a b d b d a a c 8 8 f f f 
-b 8 c a a a a a a a c c c 8 8 f 
-8 8 c d d b d d d d d b b c c f 
-c c d b c c b b b b b d b b c c 
-c c c a d c b a b d b c d b a c 
+f f a a f a a 8 f a a f f d c f 
+f d a c 8 a c 8 d a c 8 d b c b 
+d c c c a c c c a c c a d c c c 
+c c c c c c c c c c c c c c c f 
+f a a c f f d f f d c c f 8 c f 
+f d a c f f d f f d c c f a c f 
+f d a a d d c d d a c c f a c f 
+f d a c c c a c c a c c f a c f 
+f d a c f f d f f d c c f a c f 
+f d a c f f d f f d c c f a c f 
+f d a d d d b d d d d b f a c f 
+f 8 d b c c b b b b b d 8 8 c f 
+8 c c a d c b a b d b c d b 8 8 
 c a c a a a c a a d d b c a a a 
-c a b c c a a c a a d d c c a a 
-a a b b c c c b c c a a a b c c 
+c a b c 8 8 a c a a 8 8 c c a a 
+a a b b c 8 8 b c c a 8 a 8 c c 
 `</field><data>{"commentRefs":[],"fieldData":{"img":"aa8Xi_}$AGv{IQ$3Sy=a"}}</data></shadow></value><value name="kind"><shadow type="spritekind" id="MzH!^bhho6l,b*P+s5Qi"><field name="MEMBER">city</field></shadow></value></block></value><next><block type="spritesetpos" id="v%St;],|a]1!@%!3%dvv"><value name="sprite"><block type="variables_get" id="gw21ucCb`d-XPe80o^4J"><field name="VAR" id="{Si}CMp@ht4Be`mok$T}">city1</field></block></value><value name="x"><shadow type="positionPicker" id="B,k//k5SAJ!23Th0}yI_"><field name="index">232</field></shadow></value><value name="y"><shadow type="positionPicker" id="ZJR/VtFcB`Ys|Tw}Ge[("><field name="index">8</field></shadow></value></block></next></block></next></block></next></block></next></block></next></block></statement></block><block type="keyonevent" id="aXNS,T@XjuWH9Kw8{s#(" x="0" y="0"><field name="button">controller.up</field><field name="event">ControllerButtonEvent.Pressed</field><statement name="HANDLER"><block type="run_image_animation" id="@J9Ou1sz2DK5z~2QYdZx"><value name="sprite"><block type="variables_get" id="8KRt`gy9F3C^/%syI87_"><field name="VAR" id="D###?W(KQ{xO==a|]_cQ">mySprite</field></block></value><value name="frames"><block type="animation_editor" id="XZ]JImw`I~/lvxuZ:[rL"><field name="frames">[img`
 . . . . . . f f f f . . . . . . 
 . . . . f f e e e e f f . . . . 

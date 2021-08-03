@@ -429,22 +429,22 @@ function mapSetting () {
     city1 = sprites.create(assets.tile`myTile0`, SpriteKind.city)
     city1.setPosition(40, 88)
     city1 = sprites.create(img`
-        f d c f d c f 8 d c f f f d c f 
-        d c a 8 d a 8 8 c a c f d b c b 
-        d c a d c a c d c a c d d c c b 
-        d c a a c a c c c a c d b c c b 
-        f f c a d f d f a a c c c 8 c c 
-        f f c a b d b d a a c c f f f c 
-        f f c a c c c a a a c f f f f f 
-        f f c a d f d f a a 8 8 f f f f 
-        f b c a b d b d a a c 8 8 f f f 
-        b 8 c a a a a a a a c c c 8 8 f 
-        8 8 c d d b d d d d d b b c c f 
-        c c d b c c b b b b b d b b c c 
-        c c c a d c b a b d b c d b a c 
+        f f a a f a a 8 f a a f f d c f 
+        f d a c 8 a c 8 d a c 8 d b c b 
+        d c c c a c c c a c c a d c c c 
+        c c c c c c c c c c c c c c c f 
+        f a a c f f d f f d c c f 8 c f 
+        f d a c f f d f f d c c f a c f 
+        f d a a d d c d d a c c f a c f 
+        f d a c c c a c c a c c f a c f 
+        f d a c f f d f f d c c f a c f 
+        f d a c f f d f f d c c f a c f 
+        f d a d d d b d d d d b f a c f 
+        f 8 d b c c b b b b b d 8 8 c f 
+        8 c c a d c b a b d b c d b 8 8 
         c a c a a a c a a d d b c a a a 
-        c a b c c a a c a a d d c c a a 
-        a a b b c c c b c c a a a b c c 
+        c a b c 8 8 a c a a 8 8 c c a a 
+        a a b b c 8 8 b c c a 8 a 8 c c 
         `, SpriteKind.city)
     city1.setPosition(232, 8)
 }
