@@ -369,13 +369,22 @@ function sentou () {
     clearMap()
     scene.setBackgroundColor(15)
     tiles.setTilemap(tilemap`レベル3`)
+    scene.centerCameraAt(0, 0)
+    textSprite = textsprite.create("たたかう")
+    textSprite.setPosition(32, 18)
+    textSprite = textsprite.create("じゅもん")
+    textSprite.setPosition(32, 30)
+    textSprite = textsprite.create("どうぐ　")
+    textSprite.setPosition(32, 42)
+    textSprite.setMaxFontHeight(8)
     while (false) {
     	
     }
-    pause(2000)
+    pause(5000)
     mapSetting()
     mySprite.setFlag(SpriteFlag.Invisible, false)
     controller.moveSprite(mySprite, 50, 50)
+    scene.cameraFollowSprite(mySprite)
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -700,6 +709,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nLEVEL " + convertToText(level), DialogLayout.Bottom)
 })
 let city1: Sprite = null
+let textSprite: TextSprite = null
 let doguya: Sprite = null
 let murabito: Sprite = null
 let king1: Sprite = null
