@@ -91,19 +91,20 @@ function getSetting () {
     mp = blockSettings.readNumber("mp")
 }
 function putEnemy () {
+    inSentou = true
     for (let index = 0; index < 10; index++) {
         enemy1 = sprites.create(img`
-            2 . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
+            . . . . . . 2 2 2 2 . . . . . . 
+            . . . . . . 2 . . . . . . . . . 
+            . . . . . . 2 2 2 2 . . . . . . 
+            . . . . . . 2 . . . . . . . . . 
+            . . . . . . 2 2 2 2 . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -111,18 +112,24 @@ function putEnemy () {
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
         tiles.placeOnRandomTile(enemy1, sprites.castle.tileGrass1)
+        enemy1.setFlag(SpriteFlag.Invisible, false)
+        if (mySprite.overlapsWith(enemy1)) {
+            enemy1.destroy()
+        }
+    }
+    for (let index = 0; index < 10; index++) {
         enemy1 = sprites.create(img`
-            2 . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
+            . . . . . . 2 2 2 2 . . . . . . 
+            . . . . . . 2 . . . . . . . . . 
+            . . . . . . 2 2 2 2 . . . . . . 
+            . . . . . . 2 . . . . . . . . . 
+            . . . . . . 2 2 2 2 . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -130,18 +137,24 @@ function putEnemy () {
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
         tiles.placeOnRandomTile(enemy1, sprites.builtin.forestTiles0)
+        enemy1.setFlag(SpriteFlag.Invisible, false)
+        if (mySprite.overlapsWith(enemy1)) {
+            enemy1.destroy()
+        }
+    }
+    for (let index = 0; index < 10; index++) {
         enemy1 = sprites.create(img`
-            2 . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
+            . . . . . . 2 2 2 2 . . . . . . 
+            . . . . . . 2 . . . . . . . . . 
+            . . . . . . 2 2 2 2 . . . . . . 
+            . . . . . . 2 . . . . . . . . . 
+            . . . . . . 2 2 2 2 . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -149,7 +162,12 @@ function putEnemy () {
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
         tiles.placeOnRandomTile(enemy1, sprites.castle.tilePath5)
+        enemy1.setFlag(SpriteFlag.Invisible, false)
+        if (mySprite.overlapsWith(enemy1)) {
+            enemy1.destroy()
+        }
     }
+    inSentou = false
 }
 function spritesetting () {
     entrance = sprites.create(img`
@@ -647,9 +665,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.kyokai, function (sprite, otherS
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    clearEnemy()
-    sentou()
-    putEnemy()
+    if (!(inSentou)) {
+        clearEnemy()
+        sentou()
+        putEnemy()
+    }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nLEVEL " + convertToText(level), DialogLayout.Bottom)
@@ -662,6 +682,7 @@ let kyokai1: Sprite = null
 let bed: Sprite = null
 let entrance: Sprite = null
 let enemy1: Sprite = null
+let inSentou = false
 let mySprite: Sprite = null
 let mp = 0
 let maxmp = 0
