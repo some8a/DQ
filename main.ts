@@ -370,12 +370,12 @@ function sentou () {
     scene.setBackgroundColor(15)
     tiles.setTilemap(tilemap`レベル3`)
     scene.centerCameraAt(0, 0)
-    textSprite = textsprite.create("たたかう")
-    textSprite.setPosition(44, 18)
-    textSprite = textsprite.create("じゅもん")
-    textSprite.setPosition(44, 30)
-    textSprite = textsprite.create("どうぐ　")
-    textSprite.setPosition(44, 42)
+    textSprite = textsprite.create("戦う　")
+    textSprite.setPosition(32, 16)
+    textSprite = textsprite.create("じゅ文")
+    textSprite.setPosition(32, 30)
+    textSprite = textsprite.create("道具　")
+    textSprite.setPosition(32, 44)
     textSprite.setMaxFontHeight(8)
     while (false) {
     	

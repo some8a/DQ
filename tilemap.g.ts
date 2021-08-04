@@ -121,7 +121,7 @@ namespace myTiles {
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 2 
 `, [myTiles.transparency16,sprites.swamp.swampTile7,sprites.swamp.swampTile8,sprites.swamp.swampTile12,sprites.swamp.swampTile9,sprites.dungeon.stairNorth,sprites.castle.tileGrass1,sprites.castle.tilePath5,sprites.castle.rock0,sprites.swamp.swampTile5,sprites.swamp.swampTile6,myTiles.tile3,sprites.builtin.forestTiles0,sprites.builtin.forestTiles10,sprites.builtin.forestTiles5,sprites.builtin.forestTiles6,sprites.builtin.forestTiles9,sprites.builtin.forestTiles7,sprites.builtin.forestTiles15,sprites.builtin.forestTiles13,sprites.builtin.forestTiles11,sprites.skillmap.islandTile4,sprites.castle.tileGrass3,sprites.castle.tileDarkGrass3,sprites.castle.tileDarkGrass1,sprites.builtin.forestTiles24], TileScale.Sixteen);
             case "レベル3":
-            case "レベル3":return tiles.createTilemap(hex`0a0008000601010105060101010502000000020200000002020000000202000000020301010104030101010400000000000000000000000000000000000000000601010101010101010503010101010101010104`, img`
+            case "レベル3":return tiles.createTilemap(hex`0a0008000601010506010101010502000002020000000002020000020200000000020301010403010101010400000000000000000000000000000000000000000601010101010101010503010101010101010104`, img`
 . . . . . . . . . . 
 . . . . . . . . . . 
 . . . . . . . . . . 
