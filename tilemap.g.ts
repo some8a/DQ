@@ -107,7 +107,7 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 `, [myTiles.transparency16], TileScale.Sixteen);
             case "レベル2":
-            case "レベル2":return tiles.createTilemap(hex`10001000151a1a1a1a1a1a1a1a13171b1b1c18131a1a1a1a1a1a0f10100e171b1b1c1c161a1a1a1a1a0f0e1919191908080808080a091a1a0819191908081919191919190408080808190808191908080819191904081819191919080819191919191919040b1819191919080808080808080606030401010101010102191919191919190c0c0c0c0c0c060304010101010101050c0c0c0c0606060606060606060606060c0c060618060606060608080806060606060606180606060606110808080806060606060606060606110707070808080c0c0606060606060612070707070f10100c0c0c0c06060d0c0c0707070707130e101010101010101010101010140713`, img`
+            case "レベル2":return tiles.createTilemap(hex`10001000121717171717171717101418181915101717171717170e0f0f0d14181819191317171717170e0d1616161608080808080a091717081616160808161616160c0c04080808081608081616080808160c0c0408151616161608081616161616160c040b1516160c0c08080808080808060c030401010101010102161616161616160c0c0c0c0c0c0c0304010101010101050c0c0c0c0606060606060606060606060c0c0c061506060606070808080606060c0c060615060606070707080808080c0c0c06060606060707070707070808080c0c0c06060607070707070707070e0f0f0c0c0c0c07070707070707070707100d0f0f0f0f0f0f0f0f0f0f0f0f110710`, img`
 2 . . . . . . . . 2 2 . . . . 2 
 . . . . . . 2 2 2 2 2 . . . . 2 
 . . . . . 2 2 . . . . 2 2 2 2 2 
@@ -124,7 +124,7 @@ namespace myTiles {
 . . . . . . . . . . . . . . 2 2 
 2 . . . . . . . . . . . . . . 2 
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 . 2 
-`, [myTiles.transparency16,sprites.swamp.swampTile7,sprites.swamp.swampTile8,sprites.swamp.swampTile12,sprites.swamp.swampTile9,sprites.dungeon.stairNorth,sprites.castle.tileGrass1,sprites.castle.tilePath5,sprites.castle.rock0,sprites.swamp.swampTile5,sprites.swamp.swampTile6,myTiles.tile3,sprites.builtin.forestTiles0,sprites.builtin.forestTiles1,sprites.builtin.forestTiles10,sprites.builtin.forestTiles5,sprites.builtin.forestTiles6,sprites.castle.tilePath1,sprites.castle.tilePath4,sprites.builtin.forestTiles9,sprites.builtin.forestTiles7,sprites.builtin.forestTiles15,sprites.builtin.forestTiles13,sprites.builtin.forestTiles11,sprites.skillmap.islandTile4,sprites.castle.tileGrass3,sprites.castle.tileDarkGrass3,sprites.castle.tileDarkGrass1,sprites.builtin.forestTiles24], TileScale.Sixteen);
+`, [myTiles.transparency16,sprites.swamp.swampTile7,sprites.swamp.swampTile8,sprites.swamp.swampTile12,sprites.swamp.swampTile9,sprites.dungeon.stairNorth,sprites.castle.tileGrass1,sprites.castle.tilePath5,sprites.castle.rock0,sprites.swamp.swampTile5,sprites.swamp.swampTile6,myTiles.tile3,sprites.builtin.forestTiles0,sprites.builtin.forestTiles10,sprites.builtin.forestTiles5,sprites.builtin.forestTiles6,sprites.builtin.forestTiles9,sprites.builtin.forestTiles7,sprites.builtin.forestTiles15,sprites.builtin.forestTiles13,sprites.builtin.forestTiles11,sprites.skillmap.islandTile4,sprites.castle.tileGrass3,sprites.castle.tileDarkGrass3,sprites.castle.tileDarkGrass1,sprites.builtin.forestTiles24], TileScale.Sixteen);
         }
         return null;
     })

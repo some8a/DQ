@@ -111,9 +111,6 @@ function putEnemy () {
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
         tiles.placeOnRandomTile(enemy1, sprites.castle.tileGrass1)
-        enemy1.setFlag(SpriteFlag.Invisible, true)
-    }
-    for (let index = 0; index < 10; index++) {
         enemy1 = sprites.create(img`
             2 . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -133,10 +130,25 @@ function putEnemy () {
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
         tiles.placeOnRandomTile(enemy1, sprites.builtin.forestTiles0)
-        if (mySprite.overlapsWith(enemy1)) {
-            enemy1.destroy()
-        }
-        enemy1.setFlag(SpriteFlag.Invisible, true)
+        enemy1 = sprites.create(img`
+            2 . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Enemy)
+        tiles.placeOnRandomTile(enemy1, sprites.castle.tilePath5)
     }
 }
 function spritesetting () {
