@@ -132,7 +132,10 @@ function putEnemy () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
-        tiles.placeOnRandomTile(enemy1, sprites.castle.tileGrass3)
+        tiles.placeOnRandomTile(enemy1, sprites.builtin.forestTiles0)
+        if (mySprite.overlapsWith(enemy1)) {
+            enemy1.destroy()
+        }
         enemy1.setFlag(SpriteFlag.Invisible, true)
     }
 }
@@ -305,6 +308,20 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.entrance, function (sprite, othe
     putEnemy()
     mySprite.setPosition(72, 184)
 })
+function sentou () {
+    mySprite.setFlag(SpriteFlag.Invisible, true)
+    controller.moveSprite(mySprite, 0, 0)
+    clearMap()
+    scene.setBackgroundColor(15)
+    tiles.setTilemap(tilemap`レベル3`)
+    while (false) {
+    	
+    }
+    pause(2000)
+    mapSetting()
+    mySprite.setFlag(SpriteFlag.Invisible, false)
+    controller.moveSprite(mySprite, 50, 50)
+}
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -468,6 +485,8 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 function mapSetting () {
+    scene.setBackgroundColor(7)
+    tiles.setTilemap(tilemap`レベル2`)
     city1 = sprites.create(assets.tile`myTile0`, SpriteKind.city)
     city1.setPosition(72, 168)
     city1 = sprites.create(assets.tile`myTile0`, SpriteKind.city)
@@ -601,7 +620,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.city, function (sprite, otherSpr
     controller.moveSprite(mySprite, 0, 0)
     mySprite.setPosition(16, 152)
     pause(1000)
-    controller.moveSprite(mySprite, 80, 80)
+    controller.moveSprite(mySprite, 50, 50)
 })
 function clearEnemy () {
     for (let 値 of sprites.allOfKind(SpriteKind.Enemy)) {
@@ -616,7 +635,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.kyokai, function (sprite, otherS
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    mySprite.say(":)", 500)
+    clearEnemy()
+    sentou()
+    putEnemy()
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nLEVEL " + convertToText(level), DialogLayout.Bottom)
@@ -669,5 +690,5 @@ mySprite = sprites.create(img`
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
 mySprite.setPosition(56, 200)
-controller.moveSprite(mySprite, 80, 80)
+controller.moveSprite(mySprite, 50, 50)
 scene.cameraFollowSprite(mySprite)
