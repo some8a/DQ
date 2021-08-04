@@ -92,7 +92,7 @@ function getSetting () {
 }
 function putEnemy () {
     inSentou = true
-    for (let index = 0; index < 10; index++) {
+    for (let index = 0; index < 5; index++) {
         enemy1 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -117,7 +117,32 @@ function putEnemy () {
             enemy1.destroy()
         }
     }
-    for (let index = 0; index < 10; index++) {
+    for (let index = 0; index < 5; index++) {
+        enemy1 = sprites.create(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . 2 2 2 2 . . . . . . 
+            . . . . . . 2 . . . . . . . . . 
+            . . . . . . 2 2 2 2 . . . . . . 
+            . . . . . . 2 . . . . . . . . . 
+            . . . . . . 2 2 2 2 . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, SpriteKind.Enemy)
+        tiles.placeOnRandomTile(enemy1, sprites.castle.tileGrass3)
+        enemy1.setFlag(SpriteFlag.Invisible, false)
+        if (mySprite.overlapsWith(enemy1)) {
+            enemy1.destroy()
+        }
+    }
+    for (let index = 0; index < 8; index++) {
         enemy1 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -142,7 +167,7 @@ function putEnemy () {
             enemy1.destroy()
         }
     }
-    for (let index = 0; index < 10; index++) {
+    for (let index = 0; index < 8; index++) {
         enemy1 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
