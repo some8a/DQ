@@ -6,6 +6,7 @@ namespace SpriteKind {
     export const entrance = SpriteKind.create()
     export const murabito = SpriteKind.create()
     export const city = SpriteKind.create()
+    export const EnemyPic = SpriteKind.create()
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -91,7 +92,6 @@ function getSetting () {
     mp = blockSettings.readNumber("mp")
 }
 function putEnemy () {
-    inSentou = true
     for (let index = 0; index < 5; index++) {
         enemy1 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
@@ -192,7 +192,6 @@ function putEnemy () {
             enemy1.destroy()
         }
     }
-    inSentou = false
 }
 function spritesetting () {
     entrance = sprites.create(img`
@@ -356,6 +355,14 @@ function spritesetting () {
         `, SpriteKind.shop)
     doguya.setPosition(56, 136)
 }
+function clearSentou () {
+    for (let 値 of sprites.allOfKind(SpriteKind.Text)) {
+        値.destroy()
+    }
+    for (let 値 of sprites.allOfKind(SpriteKind.EnemyPic)) {
+        値.destroy()
+    }
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.entrance, function (sprite, otherSprite) {
     clearCity()
     mapSetting()
@@ -371,16 +378,36 @@ function sentou () {
     tiles.setTilemap(tilemap`レベル3`)
     scene.centerCameraAt(0, 0)
     textSprite = textsprite.create("戦う　")
-    textSprite.setPosition(32, 16)
+    textSprite.setPosition(34, 16)
     textSprite = textsprite.create("じゅ文")
-    textSprite.setPosition(32, 30)
+    textSprite.setPosition(34, 30)
     textSprite = textsprite.create("道具　")
-    textSprite.setPosition(32, 44)
+    textSprite.setPosition(34, 44)
     textSprite.setMaxFontHeight(8)
+    EnemyPic = sprites.create(img`
+        .............ccfff..............
+        ...........ccddbcf..............
+        ..........ccddbbf...............
+        ..........fccbbcf...............
+        .....fffffccccccff.........ccc..
+        ...ffbbbbbbbcbbbbcfff....ccbbc..
+        ..fbbbbbbbbcbcbbbbcccff.cdbbc...
+        ffbbbbbbffbbcbcbbbcccccfcdbbf...
+        fbcbbb11ff1bcbbbbbcccccffbbf....
+        fbbb11111111bbbbbcccccccbbcf....
+        .fb11133cc11bbbbcccccccccccf....
+        ..fccc31c111bbbcccccbdbffbbcf...
+        ...fc13c111cbbbfcddddcc..fbbf...
+        ....fccc111fbdbbccdcc.....fbbf..
+        ........ccccfcdbbcc........fff..
+        .............fffff..............
+        `, SpriteKind.EnemyPic)
+    EnemyPic.setPosition(128, 128)
     while (false) {
     	
     }
     pause(5000)
+    clearSentou()
     mapSetting()
     mySprite.setFlag(SpriteFlag.Invisible, false)
     controller.moveSprite(mySprite, 50, 50)
@@ -548,6 +575,9 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+function kougeki () {
+	
+}
 function mapSetting () {
     scene.setBackgroundColor(7)
     tiles.setTilemap(tilemap`レベル2`)
@@ -700,15 +730,19 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.kyokai, function (sprite, otherS
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     if (!(inSentou)) {
+        inSentou = true
         clearEnemy()
         sentou()
         putEnemy()
+        inSentou = false
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nLEVEL " + convertToText(level), DialogLayout.Bottom)
 })
+let inSentou = false
 let city1: Sprite = null
+let EnemyPic: Sprite = null
 let textSprite: TextSprite = null
 let doguya: Sprite = null
 let murabito: Sprite = null
@@ -717,7 +751,6 @@ let kyokai1: Sprite = null
 let bed: Sprite = null
 let entrance: Sprite = null
 let enemy1: Sprite = null
-let inSentou = false
 let mySprite: Sprite = null
 let mp = 0
 let maxmp = 0
