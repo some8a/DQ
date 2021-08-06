@@ -412,6 +412,11 @@ function sentou () {
     controller.moveSprite(mySprite, 50, 50)
     scene.cameraFollowSprite(mySprite)
 }
+function levelUp () {
+    level += 1
+    maxhp = 10 + level * level
+    maxmp = Math.idiv(level * level, 3)
+}
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -605,7 +610,10 @@ function mapSetting () {
     city1.setPosition(232, 8)
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    level += 1
+    levelUp()
+    if (level > 30) {
+        level = 1
+    }
 })
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -767,17 +775,16 @@ let kyokai1: Sprite = null
 let bed: Sprite = null
 let entrance: Sprite = null
 let enemy1: Sprite = null
+let maxmp = 0
+let maxhp = 0
 let mySprite: Sprite = null
 let mp = 0
-let maxmp = 0
 let hp = 0
-let maxhp = 0
 let level = 0
 scene.setBackgroundColor(15)
-level = 1
-maxhp = 10
+level = 0
+levelUp()
 hp = 10
-maxmp = 0
 mp = 0
 if (blockSettings.exists("level")) {
     if (game.ask("前回の続きから始めますか")) {
