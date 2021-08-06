@@ -720,8 +720,6 @@ function displayCommand () {
     textSprite.setPosition(34, 30)
     textSprite = textsprite.create("道具")
     textSprite.setPosition(34, 44)
-    textSprite = textsprite.create("イエモンが出現")
-    textSprite.setPosition(80, 112)
     textSprite = textsprite.create("HP " + convertToText(hp) + " / " + convertToText(maxhp))
     textSprite.setPosition(110, 16)
     textSprite = textsprite.create("MP " + convertToText(mp) + " / " + convertToText(maxmp))
@@ -729,6 +727,10 @@ function displayCommand () {
     textSprite = textsprite.create("LEVEL " + convertToText(level))
     textSprite.setPosition(110, 44)
     textSprite.setMaxFontHeight(8)
+    textSprite = textsprite.create("イエモンが出現")
+    textSprite.setPosition(80, 112)
+    pause(2000)
+    textSprite.setText("イエモンは逃げた")
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.city, function (sprite, otherSprite) {
     clearEnemy()
@@ -765,7 +767,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nLEVEL " + convertToText(level), DialogLayout.Bottom)
 })
 let inSentou = false
-let textSprite: TextSprite = null
 let city1: Sprite = null
 let EnemyPic: Sprite = null
 let doguya: Sprite = null
@@ -778,6 +779,7 @@ let enemy1: Sprite = null
 let maxmp = 0
 let maxhp = 0
 let mySprite: Sprite = null
+let textSprite: TextSprite = null
 let mp = 0
 let hp = 0
 let level = 0
@@ -786,6 +788,10 @@ level = 0
 levelUp()
 hp = 10
 mp = 0
+textSprite = textsprite.create("Dragon Question")
+textSprite.setPosition(80, 58)
+pause(5000)
+textSprite.destroy()
 if (blockSettings.exists("level")) {
     if (game.ask("前回の続きから始めますか")) {
         getSetting()
