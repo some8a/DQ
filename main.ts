@@ -112,7 +112,7 @@ function putEnemy () {
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
         tiles.placeOnRandomTile(enemy1, sprites.castle.tileGrass1)
-        enemy1.setFlag(SpriteFlag.Invisible, false)
+        enemy1.setFlag(SpriteFlag.Invisible, true)
         if (mySprite.overlapsWith(enemy1)) {
             enemy1.destroy()
         }
@@ -137,7 +137,7 @@ function putEnemy () {
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
         tiles.placeOnRandomTile(enemy1, sprites.castle.tileGrass3)
-        enemy1.setFlag(SpriteFlag.Invisible, false)
+        enemy1.setFlag(SpriteFlag.Invisible, true)
         if (mySprite.overlapsWith(enemy1)) {
             enemy1.destroy()
         }
@@ -162,7 +162,7 @@ function putEnemy () {
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
         tiles.placeOnRandomTile(enemy1, sprites.builtin.forestTiles0)
-        enemy1.setFlag(SpriteFlag.Invisible, false)
+        enemy1.setFlag(SpriteFlag.Invisible, true)
         if (mySprite.overlapsWith(enemy1)) {
             enemy1.destroy()
         }
@@ -187,7 +187,7 @@ function putEnemy () {
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
         tiles.placeOnRandomTile(enemy1, sprites.castle.tilePath5)
-        enemy1.setFlag(SpriteFlag.Invisible, false)
+        enemy1.setFlag(SpriteFlag.Invisible, true)
         if (mySprite.overlapsWith(enemy1)) {
             enemy1.destroy()
         }
@@ -377,13 +377,6 @@ function sentou () {
     scene.setBackgroundColor(15)
     tiles.setTilemap(tilemap`レベル3`)
     scene.centerCameraAt(0, 0)
-    textSprite = textsprite.create("戦う　")
-    textSprite.setPosition(34, 16)
-    textSprite = textsprite.create("じゅ文")
-    textSprite.setPosition(34, 30)
-    textSprite = textsprite.create("道具　")
-    textSprite.setPosition(34, 44)
-    textSprite.setMaxFontHeight(8)
     EnemyPic = sprites.create(img`
         ........................
         ............cc..........
@@ -411,11 +404,7 @@ function sentou () {
         .............ccc........
         `, SpriteKind.EnemyPic)
     EnemyPic.setPosition(80, 80)
-    textSprite = textsprite.create("イエモンが出現")
-    textSprite.setPosition(80, 112)
-    while (false) {
-    	
-    }
+    displayCommand()
     pause(5000)
     clearSentou()
     mapSetting()
@@ -716,6 +705,23 @@ function clearMap () {
         値.destroy()
     }
 }
+function displayCommand () {
+    textSprite = textsprite.create("戦う")
+    textSprite.setPosition(34, 16)
+    textSprite = textsprite.create("魔法")
+    textSprite.setPosition(34, 30)
+    textSprite = textsprite.create("道具")
+    textSprite.setPosition(34, 44)
+    textSprite = textsprite.create("イエモンが出現")
+    textSprite.setPosition(80, 112)
+    textSprite = textsprite.create("HP " + convertToText(hp) + " / " + convertToText(maxhp))
+    textSprite.setPosition(110, 16)
+    textSprite = textsprite.create("MP " + convertToText(mp) + " / " + convertToText(maxmp))
+    textSprite.setPosition(110, 30)
+    textSprite = textsprite.create("LEVEL " + convertToText(level))
+    textSprite.setPosition(110, 44)
+    textSprite.setMaxFontHeight(8)
+}
 sprites.onOverlap(SpriteKind.Player, SpriteKind.city, function (sprite, otherSprite) {
     clearEnemy()
     clearMap()
@@ -751,9 +757,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nLEVEL " + convertToText(level), DialogLayout.Bottom)
 })
 let inSentou = false
+let textSprite: TextSprite = null
 let city1: Sprite = null
 let EnemyPic: Sprite = null
-let textSprite: TextSprite = null
 let doguya: Sprite = null
 let murabito: Sprite = null
 let king1: Sprite = null
