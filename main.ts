@@ -355,6 +355,9 @@ function spritesetting () {
         `, SpriteKind.shop)
     doguya.setPosition(56, 136)
 }
+function kougekiPlayer () {
+	
+}
 function clearSentou () {
     for (let 値 of sprites.allOfKind(SpriteKind.Text)) {
         値.destroy()
@@ -374,7 +377,7 @@ function sentou () {
     mySprite.setFlag(SpriteFlag.Invisible, true)
     controller.moveSprite(mySprite, 0, 0)
     clearMap()
-    scene.setBackgroundColor(15)
+    scene.setBackgroundColor(1)
     tiles.setTilemap(tilemap`レベル3`)
     scene.centerCameraAt(0, 0)
     EnemyPic = sprites.create(img`
@@ -579,9 +582,6 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
-function kougeki () {
-	
-}
 function mapSetting () {
     scene.setBackgroundColor(7)
     tiles.setTilemap(tilemap`レベル2`)
@@ -691,6 +691,9 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+function kougekiEnemy () {
+	
+}
 function saveSetting () {
     blockSettings.writeNumber("level", level)
     blockSettings.writeNumber("maxhp", maxhp)
@@ -730,7 +733,7 @@ function displayCommand () {
     textSprite = textsprite.create(" ")
     textSprite.setPosition(16, 110)
     textSprite.setText("イエモンが出現")
-    pause(2000)
+    story.showPlayerChoices("戦う", "道具", "魔法")
     textSprite.setText("イエモンは逃げた")
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.city, function (sprite, otherSprite) {
@@ -765,7 +768,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nLEVEL " + convertToText(level), DialogLayout.Bottom)
+	
 })
 let inSentou = false
 let city1: Sprite = null
