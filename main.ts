@@ -714,12 +714,12 @@ function clearMap () {
     }
 }
 function displayCommand () {
-    textSprite = textsprite.create("戦う")
-    textSprite.setPosition(34, 16)
-    textSprite = textsprite.create("魔法")
-    textSprite.setPosition(34, 30)
-    textSprite = textsprite.create("道具")
-    textSprite.setPosition(34, 44)
+    textSprite = textsprite.create("　戦う")
+    textSprite.setPosition(30, 16)
+    textSprite = textsprite.create("　魔法")
+    textSprite.setPosition(30, 30)
+    textSprite = textsprite.create("　道具")
+    textSprite.setPosition(30, 44)
     textSprite = textsprite.create("HP " + convertToText(hp) + " / " + convertToText(maxhp))
     textSprite.setPosition(110, 16)
     textSprite = textsprite.create("MP " + convertToText(mp) + " / " + convertToText(maxmp))
@@ -727,8 +727,9 @@ function displayCommand () {
     textSprite = textsprite.create("LEVEL " + convertToText(level))
     textSprite.setPosition(110, 44)
     textSprite.setMaxFontHeight(8)
-    textSprite = textsprite.create("イエモンが出現")
-    textSprite.setPosition(80, 112)
+    textSprite = textsprite.create(" ")
+    textSprite.setPosition(16, 110)
+    textSprite.setText("イエモンが出現")
     pause(2000)
     textSprite.setText("イエモンは逃げた")
 }
