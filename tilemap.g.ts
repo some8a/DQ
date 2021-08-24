@@ -22,6 +22,10 @@ namespace myTiles {
     export const tile9 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile10 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile12 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile11 = image.ofBuffer(hex``);
 
     helpers._registerFactory("tilemap", function(name: string) {
         switch(helpers.stringTrim(name)) {
@@ -159,7 +163,7 @@ namespace myTiles {
 . . . . . . . . . . . . . . . . 
 `, [myTiles.transparency16], TileScale.Sixteen);
             case "レベル3":
-            case "レベル3":return tiles.createTilemap(hex`0a0008000601010506010101010502000002020000000002020000020200000000020301010403010101010400000000000000000000000000000000000000000601010101010101010503010101010101010104`, img`
+            case "レベル3":return tiles.createTilemap(hex`0a0008000000000006070101010500000000020000000002000000000200000000020000000003010101010400000000000000000000000000000000000000000000000000000000000000000000000000000000`, img`
 . . . . . . . . . . 
 . . . . . . . . . . 
 . . . . . . . . . . 
@@ -168,7 +172,7 @@ namespace myTiles {
 . . . . . . . . . . 
 . . . . . . . . . . 
 . . . . . . . . . . 
-`, [myTiles.transparency16,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile9,myTiles.tile10], TileScale.Sixteen);
+`, [myTiles.transparency16,myTiles.tile5,myTiles.tile6,myTiles.tile7,myTiles.tile8,myTiles.tile9,myTiles.tile10,myTiles.tile11,myTiles.tile12], TileScale.Sixteen);
         }
         return null;
     })
@@ -196,6 +200,10 @@ namespace myTiles {
             case "tile9":return tile9;
             case "myTile8":
             case "tile10":return tile10;
+            case "myTile10":
+            case "tile12":return tile12;
+            case "myTile9":
+            case "tile11":return tile11;
         }
         return null;
     })

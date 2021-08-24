@@ -406,8 +406,9 @@ function sentou () {
         .....cccccccc555c.......
         .............ccc........
         `, SpriteKind.EnemyPic)
-    EnemyPic.setPosition(80, 80)
+    EnemyPic.setPosition(36, 35)
     displayCommand()
+    uploatText()
     pause(5000)
     clearSentou()
     mapSetting()
@@ -717,24 +718,53 @@ function clearMap () {
     }
 }
 function displayCommand () {
-    textSprite = textsprite.create("　戦う")
-    textSprite.setPosition(30, 16)
-    textSprite = textsprite.create("　魔法")
-    textSprite.setPosition(30, 30)
-    textSprite = textsprite.create("　道具")
-    textSprite.setPosition(30, 44)
-    textSprite = textsprite.create("HP " + convertToText(hp) + " / " + convertToText(maxhp))
-    textSprite.setPosition(110, 16)
-    textSprite = textsprite.create("MP " + convertToText(mp) + " / " + convertToText(maxmp))
-    textSprite.setPosition(110, 30)
-    textSprite = textsprite.create("LEVEL " + convertToText(level))
-    textSprite.setPosition(110, 44)
+    game.setDialogCursor(img`
+        1 1 1 6 6 6 6 6 6 1 1 1 
+        1 1 6 6 6 8 8 8 6 6 1 1 
+        1 6 6 6 6 8 8 8 6 6 6 1 
+        1 6 6 6 8 8 6 8 8 6 6 6 
+        6 6 6 6 8 6 6 6 8 6 6 6 
+        6 6 6 6 8 6 6 6 8 6 6 6 
+        6 6 6 8 8 8 8 8 8 8 6 6 
+        6 6 6 8 6 6 6 6 6 8 6 6 
+        1 6 6 8 6 6 6 6 6 8 6 6 
+        1 6 6 8 6 6 6 6 6 8 6 1 
+        1 1 6 6 6 6 6 6 6 6 1 1 
+        1 1 1 1 6 6 6 6 6 1 1 1 
+        `)
+    game.setDialogFrame(img`
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        `)
+    game.showLongText("イエローモンスタが現れた", DialogLayout.Bottom)
+    testSpriteHP = textsprite.create("")
+    testSpriteHP.setPosition(80, 18)
+    textSpriteMP = textsprite.create("")
+    textSpriteMP.setPosition(80, 32)
+    TextSpriteLVL = textsprite.create("")
+    TextSpriteLVL.setPosition(80, 46)
     textSprite.setMaxFontHeight(8)
     textSprite = textsprite.create(" ")
     textSprite.setPosition(16, 110)
-    textSprite.setText("イエモンが出現")
+}
+function uploatText () {
+    testSpriteHP.setText("HP " + convertToText(hp) + " / " + convertToText(maxhp))
+    textSpriteMP.setText("MP " + convertToText(mp) + " / " + convertToText(maxmp))
+    TextSpriteLVL.setText("LEVEL " + convertToText(level))
     story.showPlayerChoices("戦う", "道具", "魔法")
-    textSprite.setText("イエモンは逃げた")
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.city, function (sprite, otherSprite) {
     clearEnemy()
@@ -771,6 +801,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 	
 })
 let inSentou = false
+let TextSpriteLVL: TextSprite = null
+let textSpriteMP: TextSprite = null
+let testSpriteHP: TextSprite = null
 let city1: Sprite = null
 let EnemyPic: Sprite = null
 let doguya: Sprite = null
@@ -792,7 +825,7 @@ level = 0
 levelUp()
 hp = 10
 mp = 0
-textSprite = textsprite.create("Dragon Question")
+textSprite = textsprite.create("Dragon Question I")
 textSprite.setPosition(80, 58)
 pause(5000)
 textSprite.destroy()
