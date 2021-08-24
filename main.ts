@@ -373,13 +373,17 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.entrance, function (sprite, othe
     putEnemy()
     mySprite.setPosition(72, 184)
 })
+function uploadStatus () {
+    testSpriteHP.setText("HP " + convertToText(hp) + " / " + convertToText(maxhp))
+    textSpriteMP.setText("MP " + convertToText(mp) + " / " + convertToText(maxmp))
+    textSpriteLVL.setText("LEVEL " + convertToText(level))
+}
 function sentou () {
     mySprite.setFlag(SpriteFlag.Invisible, true)
     controller.moveSprite(mySprite, 0, 0)
-    clearMap()
-    scene.setBackgroundColor(15)
-    tiles.setTilemap(tilemap`レベル3`)
     scene.centerCameraAt(0, 0)
+    clearMap()
+    displayCommand()
     EnemyPic = sprites.create(img`
         ........................
         ............cc..........
@@ -406,9 +410,8 @@ function sentou () {
         .....cccccccc555c.......
         .............ccc........
         `, SpriteKind.EnemyPic)
-    EnemyPic.setPosition(36, 35)
-    displayCommand()
-    uploatText()
+    EnemyPic.setPosition(80, 80)
+    uploadStatus()
     pause(5000)
     clearSentou()
     mapSetting()
@@ -718,53 +721,14 @@ function clearMap () {
     }
 }
 function displayCommand () {
-    game.setDialogCursor(img`
-        1 1 1 6 6 6 6 6 6 1 1 1 
-        1 1 6 6 6 8 8 8 6 6 1 1 
-        1 6 6 6 6 8 8 8 6 6 6 1 
-        1 6 6 6 8 8 6 8 8 6 6 6 
-        6 6 6 6 8 6 6 6 8 6 6 6 
-        6 6 6 6 8 6 6 6 8 6 6 6 
-        6 6 6 8 8 8 8 8 8 8 6 6 
-        6 6 6 8 6 6 6 6 6 8 6 6 
-        1 6 6 8 6 6 6 6 6 8 6 6 
-        1 6 6 8 6 6 6 6 6 8 6 1 
-        1 1 6 6 6 6 6 6 6 6 1 1 
-        1 1 1 1 6 6 6 6 6 1 1 1 
-        `)
-    game.setDialogFrame(img`
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        `)
-    game.showLongText("イエローモンスタが現れた", DialogLayout.Bottom)
+    scene.setBackgroundColor(15)
+    tiles.setTilemap(tilemap`レベル3`)
     testSpriteHP = textsprite.create("")
-    testSpriteHP.setPosition(80, 18)
+    testSpriteHP.setPosition(80, 16)
     textSpriteMP = textsprite.create("")
-    textSpriteMP.setPosition(80, 32)
-    TextSpriteLVL = textsprite.create("")
-    TextSpriteLVL.setPosition(80, 46)
-    textSprite.setMaxFontHeight(8)
-    textSprite = textsprite.create(" ")
-    textSprite.setPosition(16, 110)
-}
-function uploatText () {
-    testSpriteHP.setText("HP " + convertToText(hp) + " / " + convertToText(maxhp))
-    textSpriteMP.setText("MP " + convertToText(mp) + " / " + convertToText(maxmp))
-    TextSpriteLVL.setText("LEVEL " + convertToText(level))
-    story.showPlayerChoices("戦う", "道具", "魔法")
+    textSpriteMP.setPosition(80, 30)
+    textSpriteLVL = textsprite.create("")
+    textSpriteLVL.setPosition(80, 44)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.city, function (sprite, otherSprite) {
     clearEnemy()
@@ -801,11 +765,11 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 	
 })
 let inSentou = false
-let TextSpriteLVL: TextSprite = null
-let textSpriteMP: TextSprite = null
-let testSpriteHP: TextSprite = null
 let city1: Sprite = null
 let EnemyPic: Sprite = null
+let textSpriteLVL: TextSprite = null
+let textSpriteMP: TextSprite = null
+let testSpriteHP: TextSprite = null
 let doguya: Sprite = null
 let murabito: Sprite = null
 let king1: Sprite = null
@@ -816,7 +780,6 @@ let enemy1: Sprite = null
 let maxmp = 0
 let maxhp = 0
 let mySprite: Sprite = null
-let textSprite: TextSprite = null
 let mp = 0
 let hp = 0
 let level = 0
@@ -825,7 +788,7 @@ level = 0
 levelUp()
 hp = 10
 mp = 0
-textSprite = textsprite.create("Dragon Question I")
+let textSprite = textsprite.create("Dragon Question")
 textSprite.setPosition(80, 58)
 pause(5000)
 textSprite.destroy()
