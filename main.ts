@@ -377,7 +377,7 @@ function sentou () {
     mySprite.setFlag(SpriteFlag.Invisible, true)
     controller.moveSprite(mySprite, 0, 0)
     clearMap()
-    scene.setBackgroundColor(1)
+    scene.setBackgroundColor(15)
     tiles.setTilemap(tilemap`レベル3`)
     scene.centerCameraAt(0, 0)
     EnemyPic = sprites.create(img`
