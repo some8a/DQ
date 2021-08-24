@@ -382,42 +382,42 @@ function sentou () {
     mySprite.setFlag(SpriteFlag.Invisible, true)
     controller.moveSprite(mySprite, 0, 0)
     scene.centerCameraAt(0, 0)
+    game.setDialogCursor(img`
+        . . . 6 6 6 6 6 6 . . . 
+        . . 6 6 8 8 8 6 6 6 . . 
+        . 6 6 6 8 8 8 8 6 6 6 . 
+        . 6 6 8 8 6 8 8 8 6 6 . 
+        6 6 6 8 8 6 6 8 8 6 6 6 
+        6 6 6 8 8 6 6 8 8 6 6 6 
+        6 6 6 8 8 8 8 8 8 6 6 6 
+        6 6 8 8 6 6 6 6 8 8 6 6 
+        . 6 8 8 6 6 6 6 8 8 6 . 
+        . 6 8 8 6 6 6 6 8 8 6 . 
+        . . 6 6 6 6 6 6 6 6 . . 
+        . . . . 6 6 6 6 . . . . 
+        `)
     clearMap()
     displayCommand()
-    EnemyPic = sprites.create(img`
-        ........................
-        ............cc..........
-        ............ccc.........
-        ........ccc.ccccccc.....
-        ........ccccc555555cc...
-        ........ccb5555555555c..
-        .....ccc.b55555ff15555c.
-        .....cccb5555555ff55555c
-        ......cb555555555555d55c
-        ....c.b555555555bb55555c
-        ....ccb555ddd5555b13bbc.
-        ....ccd55ddddd555b3335c.
-        .....cdd5ddddddd55b335c.
-        ...c.bddddb555bbbd555c..
-        ...ccdddddbb55555bccc...
-        ...ccdddddddcc555bcc....
-        .ccccdddddddddcccbcccc..
-        .cdcdddddddd55dbbbc55c..
-        .cdddddddddd555dccc5c...
-        .cbddddbbbbdd5d555cc....
-        ..cbdddbbbbbdd5555......
-        ...cccbbbbbbd5555c......
-        .....cccccccc555c.......
-        .............ccc........
-        `, SpriteKind.EnemyPic)
-    EnemyPic.setPosition(80, 80)
-    uploadStatus()
-    pause(5000)
+    setEnemy()
+    tatakaiEnd = true
+    while (tatakaiEnd) {
+        uploadStatus()
+        story.showPlayerChoices("戦う", "魔法", "道具", "逃げる")
+        if (story.checkLastAnswer("逃げる")) {
+            nigeru()
+        } else {
+            game.showLongText("様子を見てる", DialogLayout.Bottom)
+        }
+    }
     clearSentou()
     mapSetting()
     mySprite.setFlag(SpriteFlag.Invisible, false)
     controller.moveSprite(mySprite, 50, 50)
     scene.cameraFollowSprite(mySprite)
+}
+function nigeru () {
+    tatakaiEnd = false
+    game.showLongText("逃げ出した", DialogLayout.Bottom)
 }
 function levelUp () {
     level += 1
@@ -619,6 +619,36 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         level = 1
     }
 })
+function setEnemy () {
+    EnemyPic = sprites.create(img`
+        ........................
+        ............cc..........
+        ............ccc.........
+        ........ccc.ccccccc.....
+        ........ccccc555555cc...
+        ........ccb5555555555c..
+        .....ccc.b55555ff15555c.
+        .....cccb5555555ff55555c
+        ......cb555555555555d55c
+        ....c.b555555555bb55555c
+        ....ccb555ddd5555b13bbc.
+        ....ccd55ddddd555b3335c.
+        .....cdd5ddddddd55b335c.
+        ...c.bddddb555bbbd555c..
+        ...ccdddddbb55555bccc...
+        ...ccdddddddcc555bcc....
+        .ccccdddddddddcccbcccc..
+        .cdcdddddddd55dbbbc55c..
+        .cdddddddddd555dccc5c...
+        .cbddddbbbbdd5d555cc....
+        ..cbdddbbbbbdd5555......
+        ...cccbbbbbbd5555c......
+        .....cccccccc555c.......
+        .............ccc........
+        `, SpriteKind.EnemyPic)
+    EnemyPic.setPosition(36, 37)
+    game.showLongText("イエローモンスタが出現", DialogLayout.Bottom)
+}
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
     mySprite,
@@ -695,9 +725,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
-function kougekiEnemy () {
-	
-}
 function saveSetting () {
     blockSettings.writeNumber("level", level)
     blockSettings.writeNumber("maxhp", maxhp)
@@ -765,8 +792,9 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 	
 })
 let inSentou = false
-let city1: Sprite = null
 let EnemyPic: Sprite = null
+let city1: Sprite = null
+let tatakaiEnd = false
 let textSpriteLVL: TextSprite = null
 let textSpriteMP: TextSprite = null
 let testSpriteHP: TextSprite = null
