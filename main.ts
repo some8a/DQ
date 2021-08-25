@@ -356,7 +356,7 @@ function spritesetting () {
     doguya.setPosition(56, 136)
 }
 function kougekiPlayer () {
-	
+    game.showLongText("自分の攻撃失敗", DialogLayout.Bottom)
 }
 function clearSentou () {
     for (let 値 of sprites.allOfKind(SpriteKind.Text)) {
@@ -399,16 +399,25 @@ function sentou () {
     clearMap()
     displayCommand()
     setEnemy()
-    tatakaiEnd = true
-    while (tatakaiEnd) {
+    inTatakai = true
+    while (inTatakai) {
         uploadStatus()
         story.showPlayerChoices("戦う", "魔法", "道具", "逃げる")
-        if (story.checkLastAnswer("逃げる")) {
+        if (story.checkLastAnswer("戦う")) {
+            kougekiPlayer()
+        } else if (story.checkLastAnswer("魔法")) {
+        	
+        } else if (story.checkLastAnswer("道具")) {
+            game.showLongText("道具がない", DialogLayout.Bottom)
+        } else if (story.checkLastAnswer("逃げる")) {
             nigeru()
-        } else {
-            game.showLongText("様子を見てる", DialogLayout.Bottom)
+            if (!(inTatakai)) {
+                break;
+            }
         }
+        kougekiEnemy()
     }
+    inTatakai = false
     clearSentou()
     mapSetting()
     mySprite.setFlag(SpriteFlag.Invisible, false)
@@ -416,8 +425,12 @@ function sentou () {
     scene.cameraFollowSprite(mySprite)
 }
 function nigeru () {
-    tatakaiEnd = false
-    game.showLongText("逃げ出した", DialogLayout.Bottom)
+    if (Math.percentChance(40)) {
+        inTatakai = false
+        game.showLongText("逃げ出した", DialogLayout.Bottom)
+    } else {
+        game.showLongText("逃げられなかった", DialogLayout.Bottom)
+    }
 }
 function levelUp () {
     level += 1
@@ -614,9 +627,15 @@ function mapSetting () {
     city1.setPosition(232, 8)
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    levelUp()
-    if (level > 30) {
-        level = 1
+    story.showPlayerChoices("強さ", "魔法", "道具", "戻る")
+    if (story.checkLastAnswer("強さ")) {
+        game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nLEVEL " + convertToText(level), DialogLayout.Bottom)
+    } else if (story.checkLastAnswer("魔法")) {
+    	
+    } else if (story.checkLastAnswer("道具")) {
+    	
+    } else {
+    	
     }
 })
 function setEnemy () {
@@ -725,6 +744,9 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+function kougekiEnemy () {
+    game.showLongText("敵の攻撃失敗", DialogLayout.Bottom)
+}
 function saveSetting () {
     blockSettings.writeNumber("level", level)
     blockSettings.writeNumber("maxhp", maxhp)
@@ -788,13 +810,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         inSentou = false
     }
 })
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-	
-})
 let inSentou = false
 let EnemyPic: Sprite = null
 let city1: Sprite = null
-let tatakaiEnd = false
+let inTatakai = false
 let textSpriteLVL: TextSprite = null
 let textSpriteMP: TextSprite = null
 let testSpriteHP: TextSprite = null
