@@ -356,7 +356,16 @@ function spritesetting () {
     doguya.setPosition(56, 136)
 }
 function kougekiPlayer () {
-    game.showLongText("自分の攻撃失敗", DialogLayout.Bottom)
+    game.showLongText("自分の攻撃", DialogLayout.Bottom)
+    damage = Math.ceil(level * (randint(30, 76) / 100))
+    enemyHP += 0 - damage
+    uploadStatus()
+    game.showLongText("" + convertToText(damage) + "のダメージ", DialogLayout.Bottom)
+    if (0 >= enemyHP) {
+        enemyHP = 0
+        inTatakai = false
+        game.showLongText("敵を倒した", DialogLayout.Bottom)
+    }
 }
 function clearSentou () {
     for (let 値 of sprites.allOfKind(SpriteKind.Text)) {
@@ -405,6 +414,9 @@ function sentou () {
         story.showPlayerChoices("戦う", "魔法", "道具", "逃げる")
         if (story.checkLastAnswer("戦う")) {
             kougekiPlayer()
+            if (!(inTatakai)) {
+                break;
+            }
         } else if (story.checkLastAnswer("魔法")) {
         	
         } else if (story.checkLastAnswer("道具")) {
@@ -665,6 +677,8 @@ function setEnemy () {
         .....cccccccc555c.......
         .............ccc........
         `, SpriteKind.EnemyPic)
+    enemyLevel = 4
+    enemyHP = enemyLevel
     EnemyPic.setPosition(36, 37)
     game.showLongText("イエローモンスタが出現", DialogLayout.Bottom)
 }
@@ -745,7 +759,16 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 function kougekiEnemy () {
-    game.showLongText("敵の攻撃失敗", DialogLayout.Bottom)
+    game.showLongText("敵の攻撃", DialogLayout.Bottom)
+    damage = Math.ceil(enemyLevel * (randint(20, 51) / 100))
+    hp += 0 - damage
+    uploadStatus()
+    game.showLongText("" + convertToText(damage) + "のダメージ", DialogLayout.Bottom)
+    if (0 >= hp) {
+        hp = 0
+        inTatakai = false
+        game.showLongText("力尽きた", DialogLayout.Bottom)
+    }
 }
 function saveSetting () {
     blockSettings.writeNumber("level", level)
@@ -811,12 +834,15 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     }
 })
 let inSentou = false
+let enemyLevel = 0
 let EnemyPic: Sprite = null
 let city1: Sprite = null
-let inTatakai = false
 let textSpriteLVL: TextSprite = null
 let textSpriteMP: TextSprite = null
 let testSpriteHP: TextSprite = null
+let inTatakai = false
+let enemyHP = 0
+let damage = 0
 let doguya: Sprite = null
 let murabito: Sprite = null
 let king1: Sprite = null
