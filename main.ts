@@ -90,6 +90,8 @@ function getSetting () {
     hp = blockSettings.readNumber("hp")
     maxmp = blockSettings.readNumber("maxmp")
     mp = blockSettings.readNumber("mp")
+    exp = blockSettings.readNumber("exp")
+    gold = blockSettings.readNumber("gold")
 }
 function putEnemy () {
     for (let index = 0; index < 5; index++) {
@@ -360,11 +362,22 @@ function kougekiPlayer () {
     damage = Math.ceil(level * (randint(30, 76) / 100))
     enemyHP += 0 - damage
     uploadStatus()
-    game.showLongText("" + convertToText(damage) + "のダメージ", DialogLayout.Bottom)
+    game.showLongText("" + convertToText(damage) + "のダメージを与えた", DialogLayout.Bottom)
     if (0 >= enemyHP) {
         enemyHP = 0
         inTatakai = false
         game.showLongText("敵を倒した", DialogLayout.Bottom)
+        exp += enemyLevel
+        uploadStatus()
+        game.showLongText("" + convertToText(enemyLevel) + "の経験値を獲得", DialogLayout.Bottom)
+        gold += enemyLevel
+        game.showLongText("" + convertToText(enemyLevel) + "ゴールドを獲得", DialogLayout.Bottom)
+        maxhp = 10 + Math.ceil(exp / 100)
+        uploadStatus()
+        game.showLongText("最大HPが" + convertToText(maxhp) + "になった", DialogLayout.Bottom)
+        maxmp = Math.ceil(exp / 100)
+        uploadStatus()
+        game.showLongText("最大MPが" + convertToText(maxmp) + "になった", DialogLayout.Bottom)
     }
 }
 function clearSentou () {
@@ -381,11 +394,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.entrance, function (sprite, othe
     tiles.setTilemap(tilemap`レベル2`)
     putEnemy()
     mySprite.setPosition(72, 184)
+    controller.moveSprite(mySprite, 50, 50)
 })
 function uploadStatus () {
     testSpriteHP.setText("HP " + convertToText(hp) + " / " + convertToText(maxhp))
     textSpriteMP.setText("MP " + convertToText(mp) + " / " + convertToText(maxmp))
-    textSpriteLVL.setText("LEVEL " + convertToText(level))
+    textSpriteLVL.setText("EXP " + convertToText(exp))
 }
 function sentou () {
     mySprite.setFlag(SpriteFlag.Invisible, true)
@@ -446,8 +460,6 @@ function nigeru () {
 }
 function levelUp () {
     level += 1
-    maxhp = 10 + level * level
-    maxmp = Math.idiv(level * level, 3)
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -762,12 +774,14 @@ function kougekiEnemy () {
     game.showLongText("敵の攻撃", DialogLayout.Bottom)
     damage = Math.ceil(enemyLevel * (randint(20, 51) / 100))
     hp += 0 - damage
-    uploadStatus()
-    game.showLongText("" + convertToText(damage) + "のダメージ", DialogLayout.Bottom)
     if (0 >= hp) {
         hp = 0
         inTatakai = false
-        game.showLongText("力尽きた", DialogLayout.Bottom)
+    }
+    uploadStatus()
+    game.showLongText("" + convertToText(damage) + "のダメージを受けた", DialogLayout.Bottom)
+    if (0 >= hp) {
+        game.showLongText("敵に倒されてしまった", DialogLayout.Bottom)
     }
 }
 function saveSetting () {
@@ -776,6 +790,8 @@ function saveSetting () {
     blockSettings.writeNumber("hp", hp)
     blockSettings.writeNumber("maxmp", maxmp)
     blockSettings.writeNumber("mp", mp)
+    blockSettings.writeNumber("exp", exp)
+    blockSettings.writeNumber("gold", gold)
 }
 sprites.onOverlap(SpriteKind.shop, SpriteKind.Player, function (sprite, otherSprite) {
     if (controller.up.isPressed()) {
@@ -834,12 +850,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     }
 })
 let inSentou = false
-let enemyLevel = 0
 let EnemyPic: Sprite = null
 let city1: Sprite = null
 let textSpriteLVL: TextSprite = null
 let textSpriteMP: TextSprite = null
 let testSpriteHP: TextSprite = null
+let enemyLevel = 0
 let inTatakai = false
 let enemyHP = 0
 let damage = 0
@@ -850,22 +866,28 @@ let kyokai1: Sprite = null
 let bed: Sprite = null
 let entrance: Sprite = null
 let enemy1: Sprite = null
-let maxmp = 0
-let maxhp = 0
 let mySprite: Sprite = null
+let gold = 0
+let exp = 0
 let mp = 0
+let maxmp = 0
 let hp = 0
+let maxhp = 0
 let level = 0
 scene.setBackgroundColor(15)
 level = 0
 levelUp()
+maxhp = 10
 hp = 10
+maxmp = 0
 mp = 0
+exp = 0
+gold = 0
 let textSprite = textsprite.create("Dragon Question")
 textSprite.setPosition(80, 58)
-pause(5000)
+pause(1000)
 textSprite.destroy()
-if (blockSettings.exists("level")) {
+if (blockSettings.exists("exp")) {
     if (game.ask("前回の続きから始めますか")) {
         getSetting()
     }
