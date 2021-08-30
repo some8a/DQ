@@ -7,6 +7,7 @@ namespace SpriteKind {
     export const murabito = SpriteKind.create()
     export const city = SpriteKind.create()
     export const EnemyPic = SpriteKind.create()
+    export const bed = SpriteKind.create()
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -85,7 +86,6 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 function getSetting () {
-    level = blockSettings.readNumber("level")
     maxhp = blockSettings.readNumber("maxhp")
     hp = blockSettings.readNumber("hp")
     maxmp = blockSettings.readNumber("maxmp")
@@ -240,7 +240,7 @@ function spritesetting () {
         .cccccccccccccc.
         .fbbfbbbbbbfbbf.
         ..ff........ff..
-        `, SpriteKind.kagu)
+        `, SpriteKind.bed)
     bed.setPosition(72, 200)
     kyokai1 = sprites.create(img`
         . . . . . f f f f . . . . . 
@@ -359,23 +359,30 @@ function spritesetting () {
 }
 function kougekiPlayer () {
     game.showLongText("自分の攻撃", DialogLayout.Bottom)
-    damage = Math.ceil(level * (randint(30, 76) / 100))
+    damage = Math.ceil(exp * (randint(30, 76) / 100))
     enemyHP += 0 - damage
     uploadStatus()
     game.showLongText("" + convertToText(damage) + "のダメージを与えた", DialogLayout.Bottom)
     if (0 >= enemyHP) {
         enemyHP = 0
         inTatakai = false
+        EnemyPic.destroy()
         game.showLongText("敵を倒した", DialogLayout.Bottom)
         exp += enemyLevel
         uploadStatus()
         game.showLongText("" + convertToText(enemyLevel) + "の経験値を獲得", DialogLayout.Bottom)
         gold += enemyLevel
         game.showLongText("" + convertToText(enemyLevel) + "ゴールドを獲得", DialogLayout.Bottom)
-        maxhp = 10 + Math.ceil(exp / 100)
+        maxhp = 10 + Math.ceil(exp / 10)
+        if (999 <= maxhp) {
+            maxhp = 999
+        }
         uploadStatus()
         game.showLongText("最大HPが" + convertToText(maxhp) + "になった", DialogLayout.Bottom)
-        maxmp = Math.ceil(exp / 100)
+        maxmp = Math.ceil(exp / 20)
+        if (999 <= maxmp) {
+            maxmp = 999
+        }
         uploadStatus()
         game.showLongText("最大MPが" + convertToText(maxmp) + "になった", DialogLayout.Bottom)
     }
@@ -397,8 +404,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.entrance, function (sprite, othe
     controller.moveSprite(mySprite, 50, 50)
 })
 function uploadStatus () {
-    testSpriteHP.setText("HP " + convertToText(hp) + " / " + convertToText(maxhp))
-    textSpriteMP.setText("MP " + convertToText(mp) + " / " + convertToText(maxmp))
+    testSpriteHP.setText("HP " + convertToText(hp) + "/" + convertToText(maxhp))
+    textSpriteMP.setText("MP " + convertToText(mp) + "/" + convertToText(maxmp))
     textSpriteLVL.setText("EXP " + convertToText(exp))
 }
 function sentou () {
@@ -457,9 +464,6 @@ function nigeru () {
     } else {
         game.showLongText("逃げられなかった", DialogLayout.Bottom)
     }
-}
-function levelUp () {
-    level += 1
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -623,6 +627,68 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     true
     )
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.bed, function (sprite, otherSprite) {
+    controller.moveSprite(mySprite, 0, 0)
+    bed.setKind(SpriteKind.kagu)
+    mySprite.setFlag(SpriteFlag.Invisible, true)
+    bed.setImage(img`
+        ...bbccccccbb...
+        ..bdddffffd1db..
+        .bddfff22fffddb.
+        .cdfff2222fffdc.
+        .cfffeeeeeefffc.
+        .fffe222222eeff.
+        .ffe2ffffff2eff.
+        f6ffffeeeeffff6f
+        fffefbd44dbfefff
+        ffee4ffbbff4eeff
+        fbfeeddddddeefbf
+        fbbfee4444eefbbf
+        fbd1111111111dbf
+        fdd1111111111ddf
+        fdd1111111111ddf
+        fdd1111111111ddf
+        fdd1111111111ddf
+        fdd11dbbbbd11ddf
+        cdbbddddddddbbdf
+        cbddddddddddddbc
+        cddddddddddddddc
+        .cccccccccccccc.
+        .fbbfbbbbbbfbbf.
+        ..ff........ff..
+        `)
+    hp = maxhp
+    mp = maxmp
+    music.playMelody("C5 G B A F A C5 B ", 120)
+    bed.setImage(img`
+        ...bbccccccbb...
+        ..bdddddddd1db..
+        .bddbbbbbbbbddb.
+        .cdb11111111bdc.
+        .cbcdbbbbbbdcbc.
+        .fbcc111111ccbf.
+        .fbcd111111dcbf.
+        f66cdd1111ddc66f
+        f66ccbbbbbbcc66f
+        fcbb33333333bbcf
+        fbb3333333333bbf
+        fbb3d111111d3bbf
+        fbd1111111111dbf
+        fdd1111111111ddf
+        fdd1111111111ddf
+        fdd1111111111ddf
+        fdd1111111111ddf
+        fdd11dbbbbd11ddf
+        cdbbddddddddbbdf
+        cbddddddddddddbc
+        cddddddddddddddc
+        .cccccccccccccc.
+        .fbbfbbbbbbfbbf.
+        ..ff........ff..
+        `)
+    mySprite.setFlag(SpriteFlag.Invisible, false)
+    controller.moveSprite(mySprite, 50, 50)
+})
 function mapSetting () {
     scene.setBackgroundColor(7)
     tiles.setTilemap(tilemap`レベル2`)
@@ -653,7 +719,7 @@ function mapSetting () {
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     story.showPlayerChoices("強さ", "魔法", "道具", "戻る")
     if (story.checkLastAnswer("強さ")) {
-        game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nLEVEL " + convertToText(level), DialogLayout.Bottom)
+        game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nEXP " + convertToText(exp), DialogLayout.Bottom)
     } else if (story.checkLastAnswer("魔法")) {
     	
     } else if (story.checkLastAnswer("道具")) {
@@ -663,6 +729,7 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     }
 })
 function setEnemy () {
+    game.showLongText("イエローモンスタが出現", DialogLayout.Bottom)
     EnemyPic = sprites.create(img`
         ........................
         ............cc..........
@@ -692,7 +759,7 @@ function setEnemy () {
     enemyLevel = 4
     enemyHP = enemyLevel
     EnemyPic.setPosition(36, 37)
-    game.showLongText("イエローモンスタが出現", DialogLayout.Bottom)
+    tiles.setTilemap(tilemap`レベル3`)
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -772,7 +839,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function kougekiEnemy () {
     game.showLongText("敵の攻撃", DialogLayout.Bottom)
-    damage = Math.ceil(enemyLevel * (randint(20, 51) / 100))
+    damage = Math.ceil(enemyLevel * (randint(10, 45) / 100))
     hp += 0 - damage
     if (0 >= hp) {
         hp = 0
@@ -785,7 +852,6 @@ function kougekiEnemy () {
     }
 }
 function saveSetting () {
-    blockSettings.writeNumber("level", level)
     blockSettings.writeNumber("maxhp", maxhp)
     blockSettings.writeNumber("hp", hp)
     blockSettings.writeNumber("maxmp", maxmp)
@@ -810,11 +876,11 @@ function clearMap () {
 }
 function displayCommand () {
     scene.setBackgroundColor(15)
-    tiles.setTilemap(tilemap`レベル3`)
+    tiles.setTilemap(tilemap`レベル9`)
     testSpriteHP = textsprite.create("")
-    testSpriteHP.setPosition(80, 16)
+    testSpriteHP.setPosition(80, 20)
     textSpriteMP = textsprite.create("")
-    textSpriteMP.setPosition(80, 30)
+    textSpriteMP.setPosition(80, 32)
     textSpriteLVL = textsprite.create("")
     textSpriteLVL.setPosition(80, 44)
 }
@@ -850,12 +916,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     }
 })
 let inSentou = false
-let EnemyPic: Sprite = null
 let city1: Sprite = null
 let textSpriteLVL: TextSprite = null
 let textSpriteMP: TextSprite = null
 let testSpriteHP: TextSprite = null
 let enemyLevel = 0
+let EnemyPic: Sprite = null
 let inTatakai = false
 let enemyHP = 0
 let damage = 0
@@ -873,10 +939,7 @@ let mp = 0
 let maxmp = 0
 let hp = 0
 let maxhp = 0
-let level = 0
 scene.setBackgroundColor(15)
-level = 0
-levelUp()
 maxhp = 10
 hp = 10
 maxmp = 0
