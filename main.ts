@@ -95,7 +95,7 @@ function getSetting () {
 }
 function putEnemy () {
     for (let index = 0; index < 5; index++) {
-        enemy1 = sprites.create(img`
+        mapEnemy1 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
@@ -113,85 +113,85 @@ function putEnemy () {
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
-        tiles.placeOnRandomTile(enemy1, sprites.castle.tileGrass1)
-        enemy1.setFlag(SpriteFlag.Invisible, true)
-        if (mySprite.overlapsWith(enemy1)) {
-            enemy1.destroy()
+        tiles.placeOnRandomTile(mapEnemy1, sprites.castle.tileGrass1)
+        mapEnemy1.setFlag(SpriteFlag.Invisible, false)
+        if (mySprite.overlapsWith(mapEnemy1)) {
+            mapEnemy1.destroy()
         }
     }
     for (let index = 0; index < 5; index++) {
-        enemy1 = sprites.create(img`
+        mapEnemy2 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
-            . . . . . . 2 2 2 2 . . . . . . 
-            . . . . . . 2 . . . . . . . . . 
-            . . . . . . 2 2 2 2 . . . . . . 
-            . . . . . . 2 . . . . . . . . . 
-            . . . . . . 2 2 2 2 . . . . . . 
+            . . . . . . 7 7 7 7 . . . . . . 
+            . . . . . . 7 . . . . . . . . . 
+            . . . . . . 7 7 7 7 . . . . . . 
+            . . . . . . 7 . . . . . . . . . 
+            . . . . . . 7 7 7 7 . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
-        tiles.placeOnRandomTile(enemy1, sprites.castle.tileGrass3)
-        enemy1.setFlag(SpriteFlag.Invisible, true)
-        if (mySprite.overlapsWith(enemy1)) {
-            enemy1.destroy()
+        tiles.placeOnRandomTile(mapEnemy2, sprites.castle.tileGrass3)
+        mapEnemy2.setFlag(SpriteFlag.Invisible, false)
+        if (mySprite.overlapsWith(mapEnemy2)) {
+            mapEnemy2.destroy()
         }
     }
     for (let index = 0; index < 8; index++) {
-        enemy1 = sprites.create(img`
+        mapEnemy3 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
-            . . . . . . 2 2 2 2 . . . . . . 
-            . . . . . . 2 . . . . . . . . . 
-            . . . . . . 2 2 2 2 . . . . . . 
-            . . . . . . 2 . . . . . . . . . 
-            . . . . . . 2 2 2 2 . . . . . . 
+            . . . . . . e e e e . . . . . . 
+            . . . . . . e . . . . . . . . . 
+            . . . . . . e e e e . . . . . . 
+            . . . . . . e . . . . . . . . . 
+            . . . . . . e e e e . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
-        tiles.placeOnRandomTile(enemy1, sprites.builtin.forestTiles0)
-        enemy1.setFlag(SpriteFlag.Invisible, true)
-        if (mySprite.overlapsWith(enemy1)) {
-            enemy1.destroy()
+        tiles.placeOnRandomTile(mapEnemy3, sprites.builtin.forestTiles0)
+        mapEnemy3.setFlag(SpriteFlag.Invisible, false)
+        if (mySprite.overlapsWith(mapEnemy3)) {
+            mapEnemy3.destroy()
         }
     }
     for (let index = 0; index < 8; index++) {
-        enemy1 = sprites.create(img`
+        mapEnemy4 = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
-            . . . . . . 2 2 2 2 . . . . . . 
-            . . . . . . 2 . . . . . . . . . 
-            . . . . . . 2 2 2 2 . . . . . . 
-            . . . . . . 2 . . . . . . . . . 
-            . . . . . . 2 2 2 2 . . . . . . 
+            . . . . . . b b b b . . . . . . 
+            . . . . . . b . . . . . . . . . 
+            . . . . . . b b b b . . . . . . 
+            . . . . . . b . . . . . . . . . 
+            . . . . . . b b b b . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Enemy)
-        tiles.placeOnRandomTile(enemy1, sprites.castle.tilePath5)
-        enemy1.setFlag(SpriteFlag.Invisible, true)
-        if (mySprite.overlapsWith(enemy1)) {
-            enemy1.destroy()
+        tiles.placeOnRandomTile(mapEnemy4, sprites.castle.tilePath5)
+        mapEnemy4.setFlag(SpriteFlag.Invisible, false)
+        if (mySprite.overlapsWith(mapEnemy4)) {
+            mapEnemy4.destroy()
         }
     }
 }
@@ -359,7 +359,7 @@ function spritesetting () {
 }
 function kougekiPlayer () {
     game.showLongText("自分の攻撃", DialogLayout.Bottom)
-    damage = Math.ceil(exp * (randint(30, 76) / 100))
+    damage = Math.ceil(exp * (randint(2, 6) / 100))
     enemyHP += 0 - damage
     uploadStatus()
     game.showLongText("" + convertToText(damage) + "のダメージを与えた", DialogLayout.Bottom)
@@ -372,8 +372,9 @@ function kougekiPlayer () {
         uploadStatus()
         game.showLongText("" + convertToText(enemyLevel) + "の経験値を獲得", DialogLayout.Bottom)
         gold += enemyLevel
+        uploadStatus()
         game.showLongText("" + convertToText(enemyLevel) + "ゴールドを獲得", DialogLayout.Bottom)
-        maxhp = 10 + Math.ceil(exp / 10)
+        maxhp = Math.ceil(exp / 10)
         if (999 <= maxhp) {
             maxhp = 999
         }
@@ -388,11 +389,11 @@ function kougekiPlayer () {
     }
 }
 function clearSentou () {
-    for (let 値 of sprites.allOfKind(SpriteKind.Text)) {
-        値.destroy()
+    for (let mapEnemy2 of sprites.allOfKind(SpriteKind.Text)) {
+        mapEnemy2.destroy()
     }
-    for (let 値 of sprites.allOfKind(SpriteKind.EnemyPic)) {
-        値.destroy()
+    for (let mapEnemy2 of sprites.allOfKind(SpriteKind.EnemyPic)) {
+        mapEnemy2.destroy()
     }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.entrance, function (sprite, otherSprite) {
@@ -407,6 +408,7 @@ function uploadStatus () {
     testSpriteHP.setText("HP " + convertToText(hp) + "/" + convertToText(maxhp))
     textSpriteMP.setText("MP " + convertToText(mp) + "/" + convertToText(maxmp))
     textSpriteLVL.setText("EXP " + convertToText(exp))
+    textGold.setText("GOLD " + convertToText(gold))
 }
 function sentou () {
     mySprite.setFlag(SpriteFlag.Invisible, true)
@@ -428,7 +430,6 @@ function sentou () {
         `)
     clearMap()
     displayCommand()
-    setEnemy()
     inTatakai = true
     while (inTatakai) {
         uploadStatus()
@@ -545,8 +546,8 @@ function clearCity () {
     king1.destroy()
     kyokai1.destroy()
     doguya.destroy()
-    for (let 値 of sprites.allOfKind(SpriteKind.murabito)) {
-        値.destroy()
+    for (let mapEnemy2 of sprites.allOfKind(SpriteKind.murabito)) {
+        mapEnemy2.destroy()
     }
     bed.destroy()
     entrance.destroy()
@@ -719,7 +720,7 @@ function mapSetting () {
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     story.showPlayerChoices("強さ", "魔法", "道具", "戻る")
     if (story.checkLastAnswer("強さ")) {
-        game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nEXP " + convertToText(exp), DialogLayout.Bottom)
+        game.showLongText("HP " + convertToText(hp) + " / " + convertToText(maxhp) + "\\nMP " + convertToText(mp) + " / " + convertToText(maxmp) + "\\nEXP " + convertToText(exp) + "\\nGOLD " + convertToText(gold), DialogLayout.Bottom)
     } else if (story.checkLastAnswer("魔法")) {
     	
     } else if (story.checkLastAnswer("道具")) {
@@ -728,38 +729,232 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     	
     }
 })
-function setEnemy () {
-    game.showLongText("イエローモンスタが出現", DialogLayout.Bottom)
-    EnemyPic = sprites.create(img`
-        ........................
-        ............cc..........
-        ............ccc.........
-        ........ccc.ccccccc.....
-        ........ccccc555555cc...
-        ........ccb5555555555c..
-        .....ccc.b55555ff15555c.
-        .....cccb5555555ff55555c
-        ......cb555555555555d55c
-        ....c.b555555555bb55555c
-        ....ccb555ddd5555b13bbc.
-        ....ccd55ddddd555b3335c.
-        .....cdd5ddddddd55b335c.
-        ...c.bddddb555bbbd555c..
-        ...ccdddddbb55555bccc...
-        ...ccdddddddcc555bcc....
-        .ccccdddddddddcccbcccc..
-        .cdcdddddddd55dbbbc55c..
-        .cdddddddddd555dccc5c...
-        .cbddddbbbbdd5d555cc....
-        ..cbdddbbbbbdd5555......
-        ...cccbbbbbbd5555c......
-        .....cccccccc555c.......
-        .............ccc........
-        `, SpriteKind.EnemyPic)
-    enemyLevel = 4
+function setEnemy (mySprite: Sprite) {
+    scene.setBackgroundColor(15)
+    tiles.setTilemap(tilemap`レベル9`)
+    if (mySprite == mapEnemy4) {
+        if (Math.percentChance(50)) {
+            game.showLongText("どくろが出現", DialogLayout.Bottom)
+            EnemyPic = sprites.create(img`
+                ........................
+                ........................
+                ........................
+                ........................
+                ..........ffff..........
+                ........ff1111ff........
+                .......fb111111bf.......
+                .......f11111111f.......
+                ......fd11111111df......
+                ......fd11111111df......
+                ......fddd1111dddf......
+                ......fbdbfddfbdbf......
+                ......fcdcf11fcdcf......
+                .......fb111111bf.......
+                ......fffcdb1bdffff.....
+                ....fc111cbfbfc111cf....
+                ....f1b1b1ffff1b1b1f....
+                ....fbfbffffffbfbfbf....
+                .........ffffff.........
+                ...........fff..........
+                ........................
+                ........................
+                ........................
+                ........................
+                `, SpriteKind.EnemyPic)
+            enemyLevel = 5
+        } else {
+            game.showLongText("パリピが出現", DialogLayout.Bottom)
+            EnemyPic = sprites.create(img`
+                ....................................................fffffffff......................
+                ...................................................ff1111111ff.....................
+                ..................................................ff111111111f.....................
+                .................................................ff1111111111ff....................
+                ................................................ff111111bbb11ff....................
+                ................................................f1111111bbdb11f....................
+                ................................................f1111111bbdd11ff...................
+                ................................................fc1111ccccdd111f...................
+                ................................................fccccccddddd111ff..................
+                ...............................................f11cccdddddcc1111f..................
+                ...............................................ff11cdddddcc11111ff.................
+                ................................................ffffffffff1111111f.................
+                .........................................................ff111111ff................
+                ..........................................................f1111111f................
+                .........................................fffffffff........ff111111f................
+                .......................................fff1111111fff.......f111111ff...............
+                ......................................ff11111111111ff......fb111111f...............
+                .....................................ff1111111111111ff.....fb111111f...............
+                .....................................f11111111cc11111f.....fb11111df...............
+                ....................................ff1cc11111cc11111ff....fbd111ddf...............
+                ....................................f11cc11111cc111111f....fdddddddf...............
+                ....................................f11cc11111bb111111f...fbbddddddf...............
+                ....................................f11bb1111111111111f..ff1bbdddddf...............
+                ....................................f1111111111b111111f.ff111bbdddff...............
+                ....fffffff.........................f111b11111bb111111fff11111bbdff................
+                ...ff11111ff........................f1111cccccc1111111ff1111111bff.................
+                ..ff1111111ff.......................f11111ccc33111111cc111111111ff.................
+                .ff111bbb111ff......................f111111c333111111cb1111111111f.................
+                ff11111bbb111ff.....................f111111c33311111cc1b11111111ff.................
+                f1111cccbb1111f.....................ff11111133111111c11b1111111ff..................
+                f111cc11111111f......................f1111111111111cc111b11111ff...................
+                f111c111111111f......................ff111111111111c1111b1111ff....................
+                f111ccccc11111f.......................ff1111111111cc11111b11ff.....................
+                ff111bbdc11111ff.......................fcc1111111cc1111111bff......................
+                .fffbbdddb11111f.......................fccccccccc1b11111111ff......................
+                ...ffdddddbb111ff.....................ffb1111b1111b11111111ff......................
+                ....ffdddd111111f....................ffb11111b111b111111111ff......................
+                .....fffff111111ff..................ffbb111111bbb1111111111ffffffff................
+                .........f1111111f.................ffdb11111111111111111111ffffffffff..............
+                .........ff111111ff......fffffffffffddb1111111111111111111cc1111111fff.............
+                ..........ff111111f....fff1111111cccddb11111111111161111cc11111111111ff............
+                ..........ff111111ff..ff11111111111ccdd1111111111166111cc1111111111111ff...........
+                ...........f1111111f.ff1111111111111ccd1111161611166111c111111111111111ff..........
+                ...........ffd11111fff111111111111111cc111166666111611cc111111111111111ff..........
+                ............fdd111b1ff111111111111111cc111116161111611c11111111133133111f..........
+                ............ffddddb1f11111111111111111c111166666111611c11111111133333111ff.........
+                .............fdddb11f1cc11111111111111cc11116161116661c13313311133333111ff.........
+                .............ffdbb11f1cc11111111111111cc11111111111111c13333311113331111ff.........
+                ..............fccb11f1cc11111111111111ff11111111111111c13333311111311111ff.........
+                ..............fcc111f1bb11111cc1111111ff11111111111661c11333111111111111ff.........
+                ..............fcc111f11111111cc1111111fff1166616611616c1113111111b111111ff.........
+                ..............fc1111f11b11111cc1111111fff1161116161616c11111b1111b111111ff.........
+                ..............f11111f11b111b1bb1111111fff1166616661616c111111cccc1111111ff.........
+                ..............f11111f111cccb1111111111f.ff161116161616cc111111111111111cf..........
+                ...............f11111c11b331111111111ff.ff1611161611111c111111111111111cffff.......
+                ...............ff1111c113331111111111f..ff1111111111111cc1111111111111ccddfff......
+                ................ff1111c1333111111111ff...f11111111111111cc11111111111ccddbddff.....
+                .................ff1111c11111111111ff....f11111111111111cccc1111111cccddbbdddff....
+                ..................ff11b1cc1111111cccf....f111111111111bcc11ccccccccc1111b11dddff...
+                ...................ff1b11bcccccccbdcff...f1111111111bbcc1111111111111111b1111dff...
+                ....................ff111bb11111bbddfff..f111111bbbbbcc111111111ccc1111cc111111ff..
+                ....................ff1111bb111bbddddfff.fbbbbbbbbbbbcd111111111c1cc11cc1c11111ff..
+                .....................f11111bbbbbddddddffffbbbbbbbbbbccd111cc111c111cc1c11c111111ff.
+                .....................f111111ddddddddddbfffbbbbbbbbbbcdd11c1cc11c1111ccc11c111111ff.
+                .....................f1111111ddddddddbbdfffbbbbbbbbccdd11c11c1c111111cc11c111111bff
+                .....................f11161611dd6dddbbdddffcbbbbbbbccdd11c11ccc1111111111c11111bbff
+                .....................f11666661166dddbdddddccbbbbbbbcddd11c11ccc1111111111c1111bbddf
+                .....................f111616111661ddbddddddccbbbbbbcddd11c1111cc111111111ccc1bbdddf
+                .....................ff1666661116111bdddddd1cbbbbbbccbbd1c11111cc1111111111ccccdddd
+                .....................ff1161611116111b1dddd11ccbbbbbcddbbcc111111cc111111111111ccccd
+                ......................f1111111116111b11111111cbbbbbcdddcc11111111ccc1111111111111cc
+                ......................f1111111166611b11111111ccbbbbcddcc111111111ccccc1111111111111
+                ......................f1166611111111bb11111111cbbbccdcc11111111ccc111ccc11111111111
+                ......................f11611166111111b11111111cbbbcccc111111cccc1111111ccc111111111
+                ......................ff1666161616611b1111111ccbbbccc1111111c111111111111ccc1111111
+                ......................ff1611166616161b111111bcccbbcc1111111cc11111111111111ccc11111
+                .......................f16111616161611b111bbb1ccbbc11111111c11111111111111111fcc111
+                .......................f11111616161611bbbbb111cccbc1111111cc11111111111111111ffccff
+                .......................f1111111111111111b111111cccc111111cc1111111111111111111f....
+                .......................f1111111111111111b111111cccc11111cc11111111111111111111f....
+                `, SpriteKind.EnemyPic)
+            enemyLevel = 8
+        }
+    } else if (mySprite == mapEnemy2) {
+        if (Math.percentChance(50)) {
+            game.showLongText("モンスタが出現", DialogLayout.Bottom)
+            EnemyPic = sprites.create(img`
+                ........................
+                ............cc..........
+                ............ccc.........
+                ........ccc.ccccccc.....
+                ........ccccc555555cc...
+                ........ccb5555555555c..
+                .....ccc.b55555ff15555c.
+                .....cccb5555555ff55555c
+                ......cb555555555555d55c
+                ....c.b555555555bb55555c
+                ....ccb555ddd5555b13bbc.
+                ....ccd55ddddd555b3335c.
+                .....cdd5ddddddd55b335c.
+                ...c.bddddb555bbbd555c..
+                ...ccdddddbb55555bccc...
+                ...ccdddddddcc555bcc....
+                .ccccdddddddddcccbcccc..
+                .cdcdddddddd55dbbbc55c..
+                .cdddddddddd555dccc5c...
+                .cbddddbbbbdd5d555cc....
+                ..cbdddbbbbbdd5555......
+                ...cccbbbbbbd5555c......
+                .....cccccccc555c.......
+                .............ccc........
+                `, SpriteKind.EnemyPic)
+            enemyLevel = 4
+        } else {
+            game.showLongText("メが出現", DialogLayout.Bottom)
+            EnemyPic = sprites.create(img`
+                .............ccfff..............
+                ...........ccddbcf..............
+                ..........ccddbbf...............
+                ..........fccbbcf...............
+                .....fffffccccccff.........ccc..
+                ...ffbbbbbbbcbbbbcfff....ccbbc..
+                ..fbbbbbbbbcbcbbbbcccff.cdbbc...
+                ffbbbbbbffbbcbcbbbcccccfcdbbf...
+                fbcbbb11ff1bcbbbbbcccccffbbf....
+                fbbb11111111bbbbbcccccccbbcf....
+                .fb11133cc11bbbbcccccccccccf....
+                ..fccc31c111bbbcccccbdbffbbcf...
+                ...fc13c111cbbbfcddddcc..fbbf...
+                ....fccc111fbdbbccdcc.....fbbf..
+                ........ccccfcdbbcc........fff..
+                .............fffff..............
+                `, SpriteKind.EnemyPic)
+            enemyLevel = 6
+        }
+    } else {
+        if (Math.percentChance(50)) {
+            game.showLongText("イエローモンスタが出現", DialogLayout.Bottom)
+            EnemyPic = sprites.create(img`
+                ........................
+                ............cc..........
+                ............ccc.........
+                ........ccc.ccccccc.....
+                ........ccccc555555cc...
+                ........ccb5555555555c..
+                .....ccc.b55555ff15555c.
+                .....cccb5555555ff55555c
+                ......cb555555555555d55c
+                ....c.b555555555bb55555c
+                ....ccb555ddd5555b13bbc.
+                ....ccd55ddddd555b3335c.
+                .....cdd5ddddddd55b335c.
+                ...c.bddddb555bbbd555c..
+                ...ccdddddbb55555bccc...
+                ...ccdddddddcc555bcc....
+                .ccccdddddddddcccbcccc..
+                .cdcdddddddd55dbbbc55c..
+                .cdddddddddd555dccc5c...
+                .cbddddbbbbdd5d555cc....
+                ..cbdddbbbbbdd5555......
+                ...cccbbbbbbd5555c......
+                .....cccccccc555c.......
+                .............ccc........
+                `, SpriteKind.EnemyPic)
+            enemyLevel = 4
+        } else {
+            game.showLongText("サメが出現", DialogLayout.Bottom)
+            EnemyPic = sprites.create(img`
+                .............ccfff..............
+                ...........ccddbcf..............
+                ..........ccddbbf...............
+                ..........fccbbcf...............
+                .....fffffccccccff.........ccc..
+                ...ffbbbbbbbcbbbbcfff....ccbbc..
+                ..fbbbbbbbbcbcbbbbcccff.cdbbc...
+                ffbbbbbbffbbcbcbbbcccccfcdbbf...
+                fbcbbb11ff1bcbbbbbcccccffbbf....
+                fbbb11111111bbbbbcccccccbbcf....
+                .fb11133cc11bbbbcccccccccccf....
+                ..fccc31c111bbbcccccbdbffbbcf...
+                ...fc13c111cbbbfcddddcc..fbbf...
+                ....fccc111fbdbbccdcc.....fbbf..
+                ........ccccfcdbbcc........fff..
+                .............fffff..............
+                `, SpriteKind.EnemyPic)
+            enemyLevel = 6
+        }
+    }
     enemyHP = enemyLevel
     EnemyPic.setPosition(36, 37)
-    tiles.setTilemap(tilemap`レベル3`)
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.runImageAnimation(
@@ -870,19 +1065,20 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.king, function (sprite, otherSpr
     }
 })
 function clearMap () {
-    for (let 値 of sprites.allOfKind(SpriteKind.city)) {
-        値.destroy()
+    for (let mapEnemy2 of sprites.allOfKind(SpriteKind.city)) {
+        mapEnemy2.destroy()
     }
 }
 function displayCommand () {
-    scene.setBackgroundColor(15)
-    tiles.setTilemap(tilemap`レベル9`)
+    tiles.setTilemap(tilemap`レベル3`)
     testSpriteHP = textsprite.create("")
     testSpriteHP.setPosition(80, 20)
     textSpriteMP = textsprite.create("")
     textSpriteMP.setPosition(80, 32)
     textSpriteLVL = textsprite.create("")
     textSpriteLVL.setPosition(80, 44)
+    textGold = textsprite.create("")
+    textGold.setPosition(80, 56)
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.city, function (sprite, otherSprite) {
     clearEnemy()
@@ -895,8 +1091,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.city, function (sprite, otherSpr
     controller.moveSprite(mySprite, 50, 50)
 })
 function clearEnemy () {
-    for (let 値 of sprites.allOfKind(SpriteKind.Enemy)) {
-        値.destroy()
+    for (let mapEnemy2 of sprites.allOfKind(SpriteKind.Enemy)) {
+        mapEnemy2.destroy()
     }
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.kyokai, function (sprite, otherSprite) {
@@ -910,6 +1106,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     if (!(inSentou)) {
         inSentou = true
         clearEnemy()
+        setEnemy(otherSprite)
         sentou()
         putEnemy()
         inSentou = false
@@ -917,6 +1114,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 let inSentou = false
 let city1: Sprite = null
+let textGold: TextSprite = null
 let textSpriteLVL: TextSprite = null
 let textSpriteMP: TextSprite = null
 let testSpriteHP: TextSprite = null
@@ -931,7 +1129,10 @@ let king1: Sprite = null
 let kyokai1: Sprite = null
 let bed: Sprite = null
 let entrance: Sprite = null
-let enemy1: Sprite = null
+let mapEnemy4: Sprite = null
+let mapEnemy3: Sprite = null
+let mapEnemy2: Sprite = null
+let mapEnemy1: Sprite = null
 let mySprite: Sprite = null
 let gold = 0
 let exp = 0
@@ -944,7 +1145,7 @@ maxhp = 10
 hp = 10
 maxmp = 0
 mp = 0
-exp = 0
+exp = 100
 gold = 0
 let textSprite = textsprite.create("Dragon Question")
 textSprite.setPosition(80, 58)
