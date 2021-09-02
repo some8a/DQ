@@ -16,18 +16,6 @@
         "tilemapTile": true,
         "displayName": "myTile1"
     },
-    "tile2": {
-        "data": "hwQQABAAAAAA0N27DADN3QDdu8vc3c3M0L27vLu7zbvdu8u8vNzL3b27zLu728zMzLu7u7y8u7zAu7u7u7u7vMDMu7u8vLu8AMC8u7u7u7wAAMy70N3MzN3dzcyw28u7vbu7y7u8zd3Ny8u7u7zNzL27u7u7vM27zczMzLy8zbsAAAAAvLvNuw==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "myTile0"
-    },
-    "tile4": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "myTile2"
-    },
     "tile7": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERERAAAAAAAAABABAAAAAAAAABEAAAAAAAAAEAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAQAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
@@ -75,6 +63,18 @@
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "myTile9"
+    },
+    "tile2": {
+        "data": "hwQQABAAAAAA0N27DADN3QDdu8vc3c3M0L27vLu7zbvdu8u8vNzL3b27zLu728zMzLu7u7y8u7zAu7u7u7u7vMDMu7u8vLu8AMC8u7u7u7wAAMy70N3MzNPdzcyw28u7s7u7y7u8zd3Dy8u7u7zNzLO7u7u7vM27w8zMzLy8zbsAAAAAvLvNuw==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile0"
+    },
+    "tile4": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADADAAAAAAAAADMAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile2"
     },
     "レベル1": {
         "id": "レベル1",

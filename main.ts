@@ -969,11 +969,11 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.bed, function (sprite, otherSpri
 function mapSetting () {
     scene.setBackgroundColor(7)
     tiles.setTilemap(tilemap`レベル2`)
-    city1 = sprites.create(assets.tile`myTile0`, SpriteKind.city)
+    city1 = sprites.create(, SpriteKind.city)
     city1.setPosition(72, 168)
-    city1 = sprites.create(assets.tile`myTile0`, SpriteKind.city)
-    city1.setPosition(40, 88)
-    city1 = sprites.create(img`
+    city2 = sprites.create(assets.tile`myTile2`, SpriteKind.city)
+    city2.setPosition(40, 88)
+    city3 = sprites.create(img`
         f f a a f a a 8 f a a f f d c f 
         f d a c 8 a c 8 d a c 8 d b c b 
         d c c c a c c c a c c a d c c c 
@@ -991,7 +991,7 @@ function mapSetting () {
         c a b c 8 8 a c a a 8 8 c c a a 
         a a b b c 8 8 b c c a 8 a 8 c c 
         `, SpriteKind.city)
-    city1.setPosition(232, 8)
+    city3.setPosition(232, 8)
 }
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     story.showPlayerChoices("強さ", "魔法", "道具", "戻る")
@@ -1135,6 +1135,47 @@ function displayCommand () {
 sprites.onOverlap(SpriteKind.Player, SpriteKind.city, function (sprite, otherSprite) {
     clearEnemy()
     clearMap()
+    if (otherSprite.image.equals()) {
+    	
+    } else if (otherSprite.image.equals(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `)) {
+    	
+    } else if (otherSprite.image.equals(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `)) {
+    	
+    }
     tiles.setTilemap(tilemap`レベル1`)
     spritesetting()
     controller.moveSprite(mySprite, 0, 0)
@@ -1169,6 +1210,8 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
     }
 })
 let inSentou = false
+let city3: Sprite = null
+let city2: Sprite = null
 let city1: Sprite = null
 let textGold: TextSprite = null
 let textSpriteLVL: TextSprite = null
